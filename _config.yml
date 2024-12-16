@@ -1,6 +1,6 @@
 theme: jekyll-theme-minimal
-title: ADA Template Website
-description: A template website for ADA
+title: Selective sips: cultural and bias trends in beer preferences across countries (by DataPilots)
+description: Website showing the results of an analysis aiming at identifying external factors that shape beer preferences.
 show_downloads: True
 navigation:
   - title: Home
