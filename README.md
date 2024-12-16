@@ -11,5 +11,8 @@ The dataset for this analysis comprises beer reviews collected from two popular 
 ## <a id="analysis"></a> Analysis
 Content of the analysis
 
+### Experience biais
+The last part of our analysis consisted in assessing the influence of user experience on beer ratings. It is well known that taste develops and refines over time. A good example is wine palate evolution: many young people initially dislike wine or prefer cheaper varieties, but they progressively develop a preference for older, high-quality wines as they age. We decided to investigate whether this phenomenon of palate refinement also occurs in beer ethusiasts. 
+
 ## <a id="conclusion"></a> Conclusion
 Content of the conclusion
