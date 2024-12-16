@@ -3,7 +3,9 @@ title: Selective sips - cultural and bias trends in beer preferences across coun
 description: Website showing the results of an analysis aiming at identifying external factors that shape beer preferences.
 show_downloads: True
 navigation:
-  - title: Home
-    url: /
-  - title: Example
-    url: example
+  - title: Introduction
+    url: /#introduction
+  - title: Analysis
+    url: /#analysis
+  - title: Conclusion
+    url: /#conclusion
