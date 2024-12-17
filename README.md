@@ -141,9 +141,9 @@ For this analysis, we decided to focus on users who posted a substantial number 
 #### **Linear regression**
 To compare rating tendencies across all users, we fitted a linear regression model on ratings to quantify the effect of experience levels on ratings while adjusting for potential confounders. The dependent variable was the final rating of the beer, and the key independent variable was the experience level of the user when they wrote the review. We also included additional independent variables corresponding to potential confounders, namely the average rating for the corresponding beer style, the average rating for the corresponding brewery and the average rating for the corresponding user. We then analyzed the regression coefficients, which are shown in the plots below.
 
-![regression coefs BA](experience_bias_plot1.png)
+![regression coefs BA](plots/experience_bias_plot1.png)
 
-![regression coefs RB](experience_bias_plot2.png)
+![regression coefs RB](plots/experience_bias_plot2.png)
 
 In both plots, each bar corresponds to a regression coefficient:
 - x1: average rating for the beer style
@@ -163,7 +163,7 @@ The one-tailed paired t-tests performed on both datasets yielded a positive test
 
 The t-tests allowed us to evaluate the statistical significance of the mean difference in ratings between matched reviews. However, as explained in the part examining cultural biases in ratings, statisticals significance does not imply practical significance. In order to determine if the differences in ratings between matched reviews were also meaningful from a practical standpoint, we decided to plot a boxplot to get a better idea of their magnitude and distribution. We obtained the figure below. Differences within pairs of reviews were calculated as the rating of the review corresponding to an "expert" experience level minus the rating of the review corresponding to a "new reviewer" experience level.
 
-![experience levels boxplot](experience_bias_plot3.png)
+![experience levels boxplot](plots/experience_bias_plot3.png)
 
 
 As shown in the plot, for both datasets, the mean difference was negative but very small and close to zero. In addition, there were many paired reviews where the expert review was associated with a much lower final rating than the paired new reviewer review, as shown by the numerous data points with a large negative value for the difference. However, there were also some cases where the expert review had a much higher rating than the paired new reviewer review, leading to high positive values.
