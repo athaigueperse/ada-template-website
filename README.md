@@ -69,6 +69,7 @@ From the results, we found that the main predictors of beer ratings were the **B
 
 
 *Predicted ratings across seasons*
+
 Using the regression coefficients, we calculated predicted ratings for each beer style in Spring, Summer, and Winter. The average predicted ratings were as follows:
 
 | **Season** | **Average Predicted Rating** |
@@ -86,11 +87,13 @@ Seasonal changes have a negligible effect on the predicted ratings. The bar char
 *Seasonal Trends by Beer Style*
 
 To see the seasonal trends by beer style we plotted a heatmap for beer styles across seasons. 
+
 ![Seasonal bias plots](plots/seasonal2.png)
 
 In the heatmap, we observe that most beer styles show little color variations across seasons. We understand that the predicted ratings for the beer styles are the same regardless of the season. The season has a small effect on the predicted ratings. We conclude that the seasonal changes have a small but statistically significant effect on predicted ratings.
 
 *Top 10 Beer Styles*
+
 The line plot for the top-rated beer styles shows subtle fluctuations across seasons. Predicted ratings for styles like American Double/Imperial Stout and Quadruple (Quad) remain consistently high with minimal variation.
 
 For example, we got ratings for American Double/Imperial Stout: 4.85 → 4.84 → 4.85 and for Gueuze: 4.78 → 4.78 → 4.78. Therefore, we conclude that for the highest-rated beer styles, ratings are consistent regardless of the season.
@@ -98,6 +101,7 @@ For example, we got ratings for American Double/Imperial Stout: 4.85 → 4.84 �
 ![Seasonal bias plots](plots/seasonal3.png)
 
 *Bottom 10 Beer Styles*
+
 The line plot for the lowest-rated beers (e.g., Light Lager, Pale Lager, and Malt Liquor) similarly shows minimal seasonal impact.
 
 For example, we got ratings for beer style Light Lager: 3.29 → 3.28 → 3.29. 
