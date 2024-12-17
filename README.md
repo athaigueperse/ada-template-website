@@ -8,8 +8,7 @@ Taste preferences for food and drinks often go beyond the intrinsic characterist
 ### Dataset
 The dataset for our analysis comprised beer reviews collected from two popular beer rating platforms, BeerAdvocate and RateBeer, covering a period from 2001 to 2017. For each website, the dataset included metadata on reviewers, beers, and breweries, along with detailed user reviews. In total, there were records of over 500,000 unique beers produced by breweries in more than 200 countries. Among the most frequently reviewed beer styles were American IPA and India Pale Ale. The dataset also included approximately 200,000 users from over 200 countries, though the distribution of users and breweries was heavily skewed: the vast majority were located in the United States on both platforms. Overall, the dataset contained over 8 million reviews from BeerAdvocate and 7 million from RateBeer. For the parts of our analysis that involved country comparisons, we excluded reviews from countries with fewer than 50 reviewers to ensure that the data was representative at a national level.
 
-## <a id="analysis"></a> Analysis
-## Cultural influence on beer preferences
+## <a id="Cultural_influence_on_beer_preferences"></a> Cultural influence on beer preferences
 ### Beer style preferences
 TO DO
 

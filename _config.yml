@@ -5,7 +5,7 @@ show_downloads: True
 navigation:
   - title: Introduction
     url: /#introduction
-  - title: Analysis
-    url: /#analysis
+  - title: Cultural influence on beer preferences
+    url: /#Cultural_influence_on_beer_preferences
   - title: Conclusion
     url: /#conclusion
