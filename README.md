@@ -1,4 +1,4 @@
-# Selective sips: cultural and bias trends in beer preferences across countries
+# Selective Sips: Cultural and Bias Trends in Beer Preferences Across Countries
 ## _by DataPilots_
 
 ## <a id="introduction"></a> Introduction
