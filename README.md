@@ -116,7 +116,10 @@ To understand the range of seasonal variations, we calculated the maximum-minimu
 
 ![Seasonal bias plots](plots/seasonal6.png)
 
+
+#### **Conclusion on Seasonal Biases**
 In conclusion, we found that seasonal bias in beer ratings, while statistically significant, was practically negligible. The main factors that influenced beer ratings were user average ratings, brewery averages, and style averages, which had the biggest impact. Both top-rated and bottom-rated beer styles showed very little variation across seasons. Overall, we concluded that seasonality had no meaningful effect on beer ratings, as user behavior and brewery related factors played a much larger role in determining the beer ratings.
+
 
 ### Experience biases
 The last part of our analysis consisted in assessing the influence of user experience on beer ratings. It is well known that taste develops and refines over time. A good example is wine palate evolution: many young people initially dislike wine or prefer cheaper varieties, but they progressively develop a preference for older, high-quality wines as they age. We decided to investigate whether this phenomenon of palate refinement also occurs in beer ethusiasts. 
