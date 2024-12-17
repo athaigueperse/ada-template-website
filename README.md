@@ -46,18 +46,20 @@ TO DO
 
 
 ## <a id="Other_biases"></a> Other biases
+After examining cultural and origin-based biases in beer ratings, we turned our attention to other external factors unrelated to location. Using the time data available in reviews, we analyzed two such factors: the season during which the beer was reviewed and the user’s experience level.
 
 ### Seasonal biases
-In this part, we examined how seasonal changes may influence beer ratings. To do so, we used the time information to determine the season during which each rating was posted.  To analyze whether the season in which a beer is reviewed has a significant impact on its rating, we first performed linear regression to adjust for confounding factors. Secondly, we examined seasonal coefficients to determine statistical significance. Thirdly, we created visualizations to analyze predicted ratings for each beer style across seasons.
+We first decided to investigate how seasonal changes influence beer ratings. We started by using the time information contained in ratings to identify the season during which each rating was posted, taking into account the location of the user (Northern hemisphere, Southern hemisphere or equatorial area) to accurately determine the season. For simplicity, we only performed the analysis on users from the 10 countries with the highest number of reviews. 
+
+We first performed a linear regression analysis with the final rating as the dependent variable and key predictors, namely season, average rating for the beer style, average rating for the brewery, user’s average rating and ABV as the independent variables. We examined the regression coefficients for the season variable to see whether ratings were significantly higher or lower in certain seasons after accounting for confounders. Using these coefficients, we then calculated predicted ratings for each beer style in each season and visualized the results with line charts, showing seasonal trends for different beer styles. 
 
 #### **Regression Analysis**
 
-For the Linear Regression Model, we used the variables below: 
+For the Linear regression model, we used the variables below: 
 
 - **Dependent Variable**: Final Beer Rating  
 - **Independent Variables**:  
    - Season (Spring, Summer, Winter)  
-   - Beer Style (categorical interaction with season)  
    - ABV (Alcohol By Volume)  
    - User's Average Rating  
    - Brewery's Average Rating  
@@ -76,7 +78,7 @@ From the regression, we got the following coefficients for each variable:
 | season_Winter        | -0.000628    |
 
 
-From the results, we found that the main predictors of beer ratings were the **Brewery Average Rating**, which had the strongest influence, followed by **User Average Rating** and **Style Average Rating**, which also had significant but smaller effects. The **ABV (Alcohol By Volume)** had a small but positive effect. On the other hand, the seasonal coefficients for **Spring (+0.0013)**, **Summer (-0.0035)**, and **Winter (-0.0006)** were very close to zero, showing that seasonal effects, while statistically significant, were minimal. Overall, we concluded that user and brewery averages were the biggest factors in beer ratings, while seasonal variations had almost no practical impact.
+From the results, we found that the main predictors of beer ratings were the **Brewery Average Rating**, which had the strongest influence, followed by **User Average Rating** and **Style Average Rating**, which also had significant but smaller effects. The **ABV (Alcohol By Volume)** had a small but positive effect. The seasonal coefficients for **Spring (+0.0013)**, **Summer (-0.0035)**, and **Winter (-0.0006)** were very much smaller to the other coefficients, suggesting that seasonal effects, while statistically significant, were minimal. We concluded that seasonal variations had a minor impact on beer ratings compared to other factors such as user and brewery average ratings.
 
 
 #### **Predicted ratings across seasons**
@@ -90,50 +92,49 @@ Using the regression coefficients, we calculated predicted ratings for each beer
 | Winter     | 4.057                       |
 
 
-We concluded from the data that the average ratings remain consistent across seasons.
-Seasonal changes have a negligible effect on the predicted ratings. The bar chart below illustrates the minimal difference in average ratings across Spring, Summer, and Winter.
+We concluded from the data that the average ratings remain consistent across seasons. The bar chart below illustrates the minimal difference in average ratings across Spring, Summer, and Winter. These results were expected from the small values of the season coefficients in the linear regression model.
 
 ![Seasonal bias plots](plots/seasonal5.png)
 
 #### **Seasonal Trends by Beer Style**
 
-To see the seasonal trends by beer style we plotted a heatmap for beer styles across seasons. 
+To visualize the variations of predicted average rating across seasons for different beer styles, we plotted a heatmap.
 
-In the heatmap below, we observe that most beer styles show little color variations across seasons. We understand that the predicted ratings for the beer styles are the same regardless of the season. The season has a small effect on the predicted ratings. We conclude that the seasonal changes have a small but statistically significant effect on predicted ratings.
+In the heatmap below, we observe that most beer styles show little color variations across seasons. This suggests that the predicted rating for a given beer style is the same regardless of the season. 
 
 ![Seasonal bias plots](plots/seasonal2.png)
 
 
-##### *Top 10 Beer Styles*
+##### *Top 10 Beer Styles by average predicted rating*
+
+For a more fine-grained analysis, we decided to look at the seasonal variations of several subsets of beer styles. First, we considered the 10 beer styles with the highest average predicted rating by the model.
 
 The line plot for the top-rated beer styles shows subtle fluctuations across seasons. Predicted ratings for styles like American Double/Imperial Stout and Quadruple (Quad) remain consistently high with minimal variation.
 
-For example, we got ratings for American Double/Imperial Stout: 4.85 → 4.84 → 4.85 and for Gueuze: 4.78 → 4.78 → 4.78. Therefore, we conclude that for the highest-rated beer styles, ratings are consistent regardless of the season.
+For instance, the predicted ratings for American Double/Imperial Stout are 4.85 in the spring, 4.84 in summer and 4.85 in winter. We concluded from these results that for the highest-rated beer styles, ratings are consistent regardless of the season.
 
 ![Seasonal bias plots](plots/seasonal3.png)
 
-##### *Bottom 10 Beer Styles*
+##### *Bottom 10 Beer Styles by average predicted rating*
 
-The line plot for the lowest-rated beers (e.g., Light Lager, Pale Lager, and Malt Liquor) similarly shows minimal seasonal impact.
+The line plot for the lowest-rated beers (e.g., Light Lager, Pale Lager, and Malt Liquor) based on predicted ratings similarly shows minimal seasonal impact.
 
-For example, we got ratings for beer style Light Lager: 3.29 → 3.28 → 3.29. 
-We also confirm that seasonal bias is negligible across both highly rated and poorly rated beer styles.
+For instance, the predicted ratings for Light Lager are 3.29 in the spring, 3.28 in summer and 3.29 in winter. Just like for the top-rated beer styles, the season appeared to have a negligible influence on the ratings of poorly-rated beer styles.
 
 ![Seasonal bias plots](plots/seasonal4.png)
 
 #### **Distribution of Seasonal Variation**
 
-To understand the range of seasonal variations, we calculated the maximum-minimum difference for predicted ratings across seasons. We observed that most beer styles have a rating range of 0.004-0.005 which indicates very little variation across seasons. The histogram below shows a concentrated distribution, and we can see the negligible seasonal impact of season on beer preferences. Below there exists the histogram of distribution of seasonal variations. 
+In order to have an idea of the distribution of the seasonal variations of predicted ratings across beer styles, we calculated the maximum-minimum difference for predicted ratings across seasons for the different beer styles and showed the distribution of the results using a histogram. We observed that most beer styles have a rating range of 0.004-0.005 which indicates very little variation across seasons. 
 
 ![Seasonal bias plots](plots/seasonal6.png)
 
 
 #### **Conclusion on Seasonal Biases**
-In conclusion, we found that seasonal bias in beer ratings, while statistically significant, was practically negligible. The main factors that influenced beer ratings were user average ratings, brewery averages, and style averages, which had the biggest impact. Both top-rated and bottom-rated beer styles showed very little variation across seasons. Overall, we concluded that seasonality had no meaningful effect on beer ratings, as user behavior and brewery related factors played a much larger role in determining the beer ratings.
+In conclusion, we found that seasonal variations did not appear to have a practically significant impact on beer ratings. Other factors such as user and brewery average ratings seemed to play a much larger role in determining the beer ratings.
 
 
-
-### Experience biases
+### Experience bias
 The last part of our analysis consisted in assessing the influence of user experience on beer ratings. It is well known that taste develops and refines over time. A good example is wine palate evolution: many young people initially dislike wine or prefer cheaper varieties, but they progressively develop a preference for older, high-quality wines as they age. We decided to investigate whether this phenomenon of palate refinement also occurs in beer ethusiasts. 
 
 For this analysis, we decided to focus on users who posted a substantial number of reviews, based on a chosen threshold, and worked on the BeerAdvocate and RateBeer datasets separately. We started by sorting the reviews from each selected user chronologically and assigning an "experience level" to each review based on the number of reviews the user had posted up to that point. These levels were predefined and consistent across all users: new reviewer (first n reviews), amateur (from the n+1th to the oth review), and expert (from the o+1th review onward). 
