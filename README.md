@@ -39,7 +39,7 @@ TO DO
 ### Seasonal biases
 In this part, we examined how seasonal changes may influence beer ratings. To do so, we used the time information to determine the season during which each rating was posted.  To analyze whether the season in which a beer is reviewed has a significant impact on its rating, we first performed linear regression to adjust for confounding factors. Secondly, we examined seasonal coefficients to determine statistical significance. Thirdly, we created visualizations to analyze predicted ratings for each beer style across seasons.
 
-*Regression Analysis*
+#### **Regression Analysis**
 
 For the Linear Regression Model, we used the variables below: 
 
@@ -68,7 +68,7 @@ From the regression, we got the following coefficients for each variable:
 From the results, we found that the main predictors of beer ratings were the **Brewery Average Rating**, which had the strongest influence, followed by **User Average Rating** and **Style Average Rating**, which also had significant but smaller effects. The **ABV (Alcohol By Volume)** had a small but positive effect. On the other hand, the seasonal coefficients for **Spring (+0.0013)**, **Summer (-0.0035)**, and **Winter (-0.0006)** were very close to zero, showing that seasonal effects, while statistically significant, were minimal. Overall, we concluded that user and brewery averages were the biggest factors in beer ratings, while seasonal variations had almost no practical impact.
 
 
-*Predicted ratings across seasons*
+#### **Predicted ratings across seasons**
 
 Using the regression coefficients, we calculated predicted ratings for each beer style in Spring, Summer, and Winter. The average predicted ratings were as follows:
 
@@ -84,15 +84,16 @@ Seasonal changes have a negligible effect on the predicted ratings. The bar char
 
 ![Seasonal bias plots](plots/seasonal5.png)
 
-*Seasonal Trends by Beer Style*
+#### **Seasonal Trends by Beer Style**
 
 To see the seasonal trends by beer style we plotted a heatmap for beer styles across seasons. 
 
+In the heatmap below, we observe that most beer styles show little color variations across seasons. We understand that the predicted ratings for the beer styles are the same regardless of the season. The season has a small effect on the predicted ratings. We conclude that the seasonal changes have a small but statistically significant effect on predicted ratings.
+
 ![Seasonal bias plots](plots/seasonal2.png)
 
-In the heatmap, we observe that most beer styles show little color variations across seasons. We understand that the predicted ratings for the beer styles are the same regardless of the season. The season has a small effect on the predicted ratings. We conclude that the seasonal changes have a small but statistically significant effect on predicted ratings.
 
-*Top 10 Beer Styles*
+##### *Top 10 Beer Styles*
 
 The line plot for the top-rated beer styles shows subtle fluctuations across seasons. Predicted ratings for styles like American Double/Imperial Stout and Quadruple (Quad) remain consistently high with minimal variation.
 
@@ -100,7 +101,7 @@ For example, we got ratings for American Double/Imperial Stout: 4.85 â†’ 4.84 â†
 
 ![Seasonal bias plots](plots/seasonal3.png)
 
-*Bottom 10 Beer Styles*
+##### *Bottom 10 Beer Styles*
 
 The line plot for the lowest-rated beers (e.g., Light Lager, Pale Lager, and Malt Liquor) similarly shows minimal seasonal impact.
 
@@ -109,7 +110,7 @@ We also confirm that seasonal bias is negligible across both highly rated and po
 
 ![Seasonal bias plots](plots/seasonal4.png)
 
-*Distribution of Seasonal Variation*
+#### **Distribution of Seasonal Variation**
 
 To understand the range of seasonal variations, we calculated the maximum-minimum difference for predicted ratings across seasons. We observed that most beer styles have a rating range of 0.004-0.005 which indicates very little variation across seasons. The histogram below shows a concentrated distribution, and we can see the negligible seasonal impact of season on beer preferences. Below there exists the histogram of distribution of seasonal variations. 
 
