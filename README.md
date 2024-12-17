@@ -9,17 +9,17 @@ Taste preferences for food and drinks often go beyond the intrinsic characterist
 The dataset for our analysis comprised beer reviews collected from two popular beer rating platforms, BeerAdvocate and RateBeer, covering a period from 2001 to 2017. For each website, the dataset included metadata on reviewers, beers, and breweries, along with detailed user reviews. In total, there were records of over 500,000 unique beers produced by breweries in more than 200 countries. Among the most frequently reviewed beer styles were American IPA and India Pale Ale. The dataset also included approximately 200,000 users from over 200 countries, though the distribution of users and breweries was heavily skewed: the vast majority were located in the United States on both platforms. Overall, the dataset contained over 8 million reviews from BeerAdvocate and 7 million from RateBeer. For the parts of our analysis that involved country comparisons, we excluded reviews from countries with fewer than 50 reviewers to ensure that the data was representative at a national level.
 
 ## <a id="analysis"></a> Analysis
-### Cultural influence on beer preferences
-**Beer style preferences**
+## Cultural influence on beer preferences
+### Beer style preferences
 TO DO
 
-**Importance of specific beer attributes**
+## Importance of specific beer attributes
 TO DO
 
-### Location-related biases in ratings
+## Location-related biases in ratings
 After exploring how beer preferences differ across countries, we aimed to identify factors—beyond the intrinsic qualities of beer—that might influence user ratings. Our initial focus was on location-related biases, as these seemed the most likely to impact beer ratings.
 
-**Cultural biases**
+### Cultural biases
 Our first step was to investigate whether users from certain countries are more generous or more critical in their ratings compared to users from other countries. 
 
 To this aim, we started by fitting a logistic regression model on reviews from BeerAdvocate and RateBeer (combined in a single dataset),where the dependent variable was the reviewer’s country, and the independent variables were potentially relevant confounders, namely the average rating for the beer style, the brewery's average rating and the number of reviews given by the user. The model gave a propensity score to each review, which corresponded to the likelihood of a review being associated with a particular country given the confounders.
@@ -30,11 +30,20 @@ To be able to determine whether users from certain countries are more generous o
 
 ![P value plot](plots/cultural_biases_plot1.png)
 
+As shown by all the black dots above the y=0.05 line, the majority of tests yielded a p-value larger than 0.05, meaning that for most country pairs, the mean difference in final rating was not significant at a 5% significance level. However, there are several country pairs for which there actually was a significant difference in final rating. For instance, we can see in the plot that after accounting for confounders, users from Croatia tend to give ratings that are significantly lower than users from Singapore from a statistical standpoint. On the other hand, users from Argentina tend to give ratings that are significantly higher than users from South Africa from a statistical standpoint. These results suggested that users from certain regions tend to be more generous or more critical in their ratings compared to users from other countries.
 
-**Beer origin bias**
+In this way, some of the differences were statistically significant. However, statisticals significance does not imply practical significance. In order to determine if these differences were also meaningful from a practical standpoint, we decided to look at their magnitude. We plotted a boxplot to visualize the distribution of differences in final beer rating between matched reviews for the 10 country pairs for which the t-test yielded the lowest p-values. We obtained the figure below.
+
+![rating difference boxplot](plots/cultural_biases_plot2.png)
+
+In the plot, none of the boxes contain zero (zero is not comprised between Q1 and Q3), which indicates that for each of the top 10 country pairs with the lowest p-values, ratings from one country are consistently higher or lower than those from the other country for most paired reviews in the sample. This implies that the majority of matched reviews for each of these country pairs show a meaningful and unidirectional difference in ratings. In addition, the median for nearly all country pairs in the plot is larger than 1 in absolute value. A difference of 1 out of 5 is large, which means that for these country pairs, the differences in ratings are not only statistically significant but also meaningful from a practical standpoint.
+
+These results suggested that after accounting for potential confounders, users from certain countries are more generous in their ratings compared to users from other countries. There seemed to be clear trends in rating differences for certain country pairs, and the differences in ratings appeared significant from both a statistical and a practical standpoint. We concluded that there seemed to be a "cultural bias" among beer reviewers, which can have a meaningful impact on beer reviews.
+
+### Beer origin bias
 TO DO
 
-### Other biases
+## Other biases
 
 ### Seasonal biases
 In this part, we examined how seasonal changes may influence beer ratings. To do so, we used the time information to determine the season during which each rating was posted.  To analyze whether the season in which a beer is reviewed has a significant impact on its rating, we first performed linear regression to adjust for confounding factors. Secondly, we examined seasonal coefficients to determine statistical significance. Thirdly, we created visualizations to analyze predicted ratings for each beer style across seasons.
@@ -119,6 +128,7 @@ To understand the range of seasonal variations, we calculated the maximum-minimu
 
 #### **Conclusion on Seasonal Biases**
 In conclusion, we found that seasonal bias in beer ratings, while statistically significant, was practically negligible. The main factors that influenced beer ratings were user average ratings, brewery averages, and style averages, which had the biggest impact. Both top-rated and bottom-rated beer styles showed very little variation across seasons. Overall, we concluded that seasonality had no meaningful effect on beer ratings, as user behavior and brewery related factors played a much larger role in determining the beer ratings.
+
 
 
 ### Experience biases
