@@ -1,7 +1,7 @@
 theme: jekyll-theme-minimal
-title: Selective sips - cultural and bias trends in beer preferences across countries (by DataPilots)
+title: Selective sips
 description: Website showing the results of an analysis aiming at identifying external factors that shape beer preferences.
-show_downloads: False
+show_downloads: True
 navigation:
   - title: Introduction
     url: /#introduction
