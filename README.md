@@ -12,10 +12,10 @@ The dataset for our analysis comprised beer reviews collected from two popular b
 ### Beer style preferences
 TO DO
 
-## Importance of specific beer attributes
+### Importance of specific beer attributes
 TO DO
 
-## Location-related biases in ratings
+## <a id="Location_related_biases_in_ratings"></a> Location-related biases in ratings
 After exploring how beer preferences differ across countries, we aimed to identify factors—beyond the intrinsic qualities of beer—that might influence user ratings. Our initial focus was on location-related biases, as these seemed the most likely to impact beer ratings.
 
 ### Cultural biases
@@ -42,7 +42,8 @@ These results suggested that after accounting for potential confounders, users f
 ### Beer origin bias
 TO DO
 
-## Other biases
+
+## <a id="Other_biases"></a> Other biases
 
 ### Seasonal biases
 In this part, we examined how seasonal changes may influence beer ratings. To do so, we used the time information to determine the season during which each rating was posted.  To analyze whether the season in which a beer is reviewed has a significant impact on its rating, we first performed linear regression to adjust for confounding factors. Secondly, we examined seasonal coefficients to determine statistical significance. Thirdly, we created visualizations to analyze predicted ratings for each beer style across seasons.

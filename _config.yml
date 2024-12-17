@@ -7,5 +7,9 @@ navigation:
     url: /#introduction
   - title: Cultural influence on beer preferences
     url: /#Cultural_influence_on_beer_preferences
+  - title: Location-related biases in ratings
+    url: /#Location_related_biases_in_ratings  
+  - title: Other biases
+    url: /#Other_biases 
   - title: Conclusion
     url: /#conclusion
