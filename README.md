@@ -12,11 +12,75 @@ The dataset for this analysis comprises beer reviews collected from two popular 
 Content of the analysis
 
 ### Seasonal biases
-In this part, we will examine how seasonal changes may influence beer ratings. To do so, we will use the time information to determine the season during which each rating was posted. This task may be complex as some countries are in the Northern hemisphere and others are in the Southern hemisphere, and some may be located close to the Equator and may thus not even experience seasons! We will simplify things by only considering reviews from the 10 countries with the most reviews. We will determine whether they are in the Northern or Southern hemisphere and use the time information in the reviews to determine the season during which each review was posted.
+In this part, we examined how seasonal changes may influence beer ratings. To do so, we used the time information to determine the season during which each rating was posted.  To analyze whether the season in which a beer is reviewed has a significant impact on its rating, we first performed linear regression to adjust for confounding factors. Then we examined seasonal coefficients to determine statistical significance. And we created visualizations to analyze predicted ratings for each beer style across seasons.
 
-We will then group the ratings by season and calculate the average final rating within each group to see if some seasons are associated with higher ratings overall. We will then refine the analysis by calculating the average final rating for each beer style within each group, and compare these averages across different seasons to identify any notable variations.
+####Regression Analysis
 
-![Seasonal bias plots](plots/seasonal1.png)
+For the Regression Model we used variables below: 
+
+Dependent Variable: Final Beer Rating
+Independent Variables:
+Season (Spring, Summer, Winter)
+Beer Style (categorical interaction with season)
+ABV (Alcohol By Volume)
+User's Average Rating
+Brewery's Average Rating
+Style's Average Rating
+
+The dominant predictors of beer ratings are the Brewery Average Rating, which has the highest coefficient and exerts the strongest influence, followed by User Average Rating and Style Average Rating, both of which make significant but smaller contributions. The ABV (Alcohol By Volume) also has a small but positive effect. In contrast, the seasonal coefficients for Spring (+0.0013), Summer (-0.0035), and Winter (-0.0006) are very close to zero, indicating that seasonal effects, while statistically significant, are minimal. Overall, user and brewery averages dominate beer ratings, with seasonal variations having a negligible practical impact.
+
+
+####Predicted ratings across seasons 
+Using the regression coefficients, we calculated predicted ratings for each beer style in Spring, Summer, and Winter. The average predicted ratings were as follows:
+
+Season |	Average Predicted Rating
+Spring |	4.058
+Summer |	4.054
+Winter |	4.057
+
+We concluded from the data that the average ratings remain consistent across seasons.
+Seasonal changes have a negligible effect on the predicted ratings. The bar chart below illustrates the minimal difference in average ratings across Spring, Summer, and Winter.
+
+![Seasonal bias plots](plots/seasonal5.png)
+
+####Seasonal Trends by Beer Style 
+
+To see the seasonal trends by beer style we plotted a heatmap for beer styles across seasons. 
+![Seasonal bias plots](plots/seasonal2.png)
+
+ın the heatmap, we observe that most beer styles show little color variations accross seasons. We understand that the predicted ratings for the beer styles are the same regardless of the season. The season has small effect on the predicted ratings. We conclude that the seasonal changes have small but statistically significant effect on predicted ratings.
+
+Top 10 Beer Styles
+The line plot for the top-rated beer styles shows subtle fluctuations across seasons. Predicted ratings for styles like American Double/Imperial Stout and Quadruple (Quad) remain consistently high with minimal variation.
+
+For example we got ratings American Double/Imperial Stout: 4.85 → 4.84 → 4.85 and for Gueuze: 4.78 → 4.78 → 4.78. Therefore, we conclude that for the highest-rated beer styles, ratings are consistent regardless of the season.
+
+![Seasonal bias plots](plots/seasonal3.png)
+
+Bottom 10 Beer Styles
+The line plot for the lowest-rated beers (e.g., Light Lager, Pale Lager, and Malt Liquor) similarly shows minimal seasonal impact.
+
+For example, we got ratings for beer style Light Lager: 3.29 → 3.28 → 3.29. 
+We also confirm that seasonal bias is negligible across both highly rated and poorly rated beer styles.
+
+![Seasonal bias plots](plots/seasonal4.png)
+
+####Distribution of Seasonal Variation
+
+To understand the range of seasonal variations, we calculated the maximum-minimum difference for predicted ratings across seasons. We observed that most beer styles have a rating range of 0.004-0.005 which indicates very little variation across seasons. The histogram below shows a concentrated distribution, and we can see the negligible seasonal impact of season on beer preferences.
+
+
+![Seasonal bias plots](plots/seasonal4.png)
+
+####Conclusion 
+
+
+
+
+
+
+
+
 
 
 ### Experience biases
