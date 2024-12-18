@@ -69,27 +69,32 @@ For the Linear regression model, we used the variables below:
    - Palate
    - Taste
 
+
+We trained our linear regression model and had Training R2: 0.9704 showing that this is an excellent fit. The model explains 97% of the variability in ratings, thus we conclude that model fits the data extremely well. We also have a MSE as 0.01442 which is very low, which means that the model's predictions are very close to the true values.
+
+Our model seems thus good enough to work with predictions later in the analysis.
+
 From the regression, we got the following coefficients for each variable: 
 
 | **Feature**          | **Coefficient** | **p-value**  |
 |----------------------|-------------|------------------|
-| x1 (abv)            | 0.002226    | 0.000000e+00     |
-| x2 (user_avg_rating)| -0.000319   | 1.289318e-07     |
-| x3 (brewery_avg_rating) | 0.015163 | 0.000000e+00    |
-| x4 (style_avg_rating)| -0.001109  | 5.017367e-42     |
-| x5 (appearance)     | 0.076178    | 0.000000e+00     |
-| x6 (aroma)          | 0.209587    | 0.000000e+00     |
-| x7 (palate)         | 0.115837    | 0.000000e+00     |
-| x8 (taste)          | 0.348882    | 0.000000e+00     |
-| x9 (season_Spring)  | -0.000281   | 9.979510e-07     |
-| x10 (season_Summer) | -0.000373   | 6.309549e-11     |
-| x11 (season_Winter) | -0.000328   | 1.052942e-08     |
+| abv            | 0.002226    | 0.000000e+00     |
+| user_avg_rating| -0.000319   | 1.289318e-07     |
+| brewery_avg_rating | 0.015163 | 0.000000e+00    |
+| style_avg_rating| -0.001109  | 5.017367e-42     |
+| appearance    | 0.076178    | 0.000000e+00     |
+| aroma          | 0.209587    | 0.000000e+00     |
+| palate        | 0.115837    | 0.000000e+00     |
+| taste         | 0.348882    | 0.000000e+00     |
+| season_Spring  | -0.000281   | 9.979510e-07     |
+| season_Summer | -0.000373   | 6.309549e-11     |
+| season_Winter | -0.000328   | 1.052942e-08     |
 
 When we observe the results, all p-values of variables are zero or extremely small (way below 0.05), indicating that all coefficients are statistically significant.
 
 When we observe the features, taste (0.3489), aroma (0.2096), appearance (0.0762), and palate (0.1158) had the biggest positive effects on beer ratings, showing that these attributes strongly influence higher ratings. On the other hand, user_avg_rating (-0.0003) and style_avg_rating (-0.0011) had small negative effects, while brewery_avg_rating (0.0152) slightly increased ratings.
 
-The coefficients of season_Spring, season_Summer and season_Winter are very close to zero, hence we conclude that the seasonal changes on beer ratings is very small.
+The coefficients of season_Spring, season_Summer and season_Winter are very close to zero.  This suggests that though season appears to have a statistically significant impact on beer ratings, it does not seem to be the dominant factor driving rating behavior. Other factors, such as attribute ratings and the brewery avergae rating, seem to play a much larger role.
 
 #### **Predicted ratings across seasons**
 
@@ -106,11 +111,13 @@ We concluded from the data that the average ratings remain consistent across sea
 
 ![Seasonal bias plots](plots/seasonal5.png)
 
+The bars all have approximately the same height. This means that average predicted ratings do not vary significantly across seasons for all beer styles combined.
+
 #### **Seasonal Trends by Beer Style**
 
 To visualize the variations of predicted average rating across seasons for different beer styles, we plotted a heatmap.
 
-In the heatmap below, we observe that most beer styles show little color variations across seasons. This suggests that the predicted rating for a given beer style is the same regardless of the season. 
+In the heatmap below, we observe that most beer styles show little color variations across seasons. This suggests that the predicted rating for a given beer style is the same regardless of the season. The season has very small effect on the predicted ratings. This was expected from the very small regression coefficients for the season variable.
 
 ![Seasonal bias plots](plots/seasonal2.png)
 
@@ -119,29 +126,29 @@ In the heatmap below, we observe that most beer styles show little color variati
 
 For a more fine-grained analysis, we decided to look at the seasonal variations of several subsets of beer styles. First, we considered the 10 beer styles with the highest average predicted rating by the model.
 
-The line plot for the top-rated beer styles shows subtle fluctuations across seasons. Predicted ratings for styles like American Double/Imperial Stout, Gueuze, Quadruple (Quad) remain consistently high with minimal variation.
+In the line plot below, there is no noticeable variation across seasons for the top-rated beer styles: the lines appear flat. These beer styles, eg American Double, Quadrupel, Gueuze etc. are consistently rated highly regardless of the season. The ratings of these beers seem to be not affected by the seasons.
 
-For instance, the predicted ratings for American Double/Imperial Stout are 4.85 in the spring, 4.84 in summer and 4.85 in winter. We concluded from these results that for the highest-rated beer styles, ratings are consistent regardless of the season.
+We conclude from these results that for the highest-rated beer styles, ratings are consistent regardless of the season.
 
 ![Seasonal bias plots](plots/seasonal3.png)
 
 ##### *Bottom 10 Beer Styles by average predicted rating*
 
-The line plot for the lowest-rated beers (e.g., Light Lager, Pale Lager, and Malt Liquor) based on predicted ratings similarly shows minimal seasonal impact.
-
-For instance, the predicted ratings for Light Lager are 3.29 in the spring, 3.28 in summer and 3.29 in winter. Just like for the top-rated beer styles, the season appeared to have a negligible influence on the ratings of poorly-rated beer styles.
+These poorly rated beer styles consistently receive low ratings accross seasons. In the plot below, here is not a visible difference of ratings between the seasons for these beer styles. We again observe that seasons does not seem to be an important factor in determining beer ratings.
 
 ![Seasonal bias plots](plots/seasonal4.png)
 
 #### **Distribution of Seasonal Variation**
 
-In order to have an idea of the distribution of the seasonal variations of predicted ratings across beer styles, we calculated the maximum-minimum difference for predicted ratings across seasons for the different beer styles and showed the distribution of the results using a histogram. We observed that most beer styles have a rating range of 0.004-0.005 which indicates very little variation across seasons. 
+In order to have an idea of the distribution of the seasonal variations of predicted ratings across beer styles, we calculated the maximum-minimum difference for predicted ratings across seasons for the different beer styles and showed the distribution of the results using a histogram. 
+
+In the histogram below, we observe that all of the beer styles are have an extremely small max- min rating range. This shows that the effect of season on ratings is not significant. Predicted ratings do not vary significantly from a practical standpoints across seasons for most beer styles.
 
 ![Seasonal bias plots](plots/seasonal6.png)
 
 
 #### **Conclusion on Seasonal Biases**
-In conclusion, we found that seasonal variations did not appear to have a practically significant impact on beer ratings. Other factors such as user and brewery average ratings seemed to play a much larger role in determining the beer ratings.
+In conclusion, we found that seasonal variations did not appear to have a practically significant impact on beer ratings. Other factors such as beer attributes and user and brewery average ratings seemed to play a much larger role in determining the beer ratings.
 
 
 ### Experience bias
