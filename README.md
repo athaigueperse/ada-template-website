@@ -51,7 +51,7 @@ After examining cultural and origin-based biases in beer ratings, we turned our 
 ### Seasonal biases
 We first decided to investigate how seasonal changes influence beer ratings. We started by using the time information contained in ratings to identify the season during which each rating was posted, taking into account the location of the user (Northern hemisphere, Southern hemisphere or equatorial area) to accurately determine the season. For simplicity, we only performed the analysis on users from the 10 countries with the highest number of reviews. 
 
-We first performed a linear regression analysis with the final rating as the dependent variable and key predictors, namely season, average rating for the beer style, average rating for the brewery, user’s average rating and ABV as the independent variables. We examined the regression coefficients for the season variable to see whether ratings were significantly higher or lower in certain seasons after accounting for confounders. Using these coefficients, we then calculated predicted ratings for each beer style in each season and visualized the results with line charts, showing seasonal trends for different beer styles. 
+We first performed a linear regression analysis with the final rating as the dependent variable and key predictors, namely season, average rating for the beer style, average rating for the brewery, user’s average rating, ABV, appearance, aroma, palate, taste as the independent variables. We examined the regression coefficients for the season variable to see whether ratings were significantly higher or lower in certain seasons after accounting for confounders. Using these coefficients, we then calculated predicted ratings for each beer style in each season and visualized the results with line charts, showing seasonal trends for different beer styles. 
 
 #### **Regression Analysis**
 
@@ -63,7 +63,11 @@ For the Linear regression model, we used the variables below:
    - ABV (Alcohol By Volume)  
    - User's Average Rating  
    - Brewery's Average Rating  
-   - Style's Average Rating  
+   - Style's Average Rating
+   - Appearance
+   - Aroma
+   - Palate
+   - Taste
 
 From the regression, we got the following coefficients for each variable: 
 
