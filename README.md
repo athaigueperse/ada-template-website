@@ -71,19 +71,25 @@ For the Linear regression model, we used the variables below:
 
 From the regression, we got the following coefficients for each variable: 
 
-|**Feature**         | **Coefficient**|
-|----------------------|-------------|
-| abv                  | 0.074121     |
-| user_avg_rating      | 0.137794     |
-| brewery_avg_rating   | 0.275858     |
-| style_avg_rating     | 0.123048     |
-| season_Spring        | 0.001250     |
-| season_Summer        | -0.003523    |
-| season_Winter        | -0.000628    |
+| **Feature**          | **Coefficient** | **p-value**  |
+|----------------------|-------------|------------------|
+| x1 (abv)            | 0.002226    | 0.000000e+00     |
+| x2 (user_avg_rating)| -0.000319   | 1.289318e-07     |
+| x3 (brewery_avg_rating) | 0.015163 | 0.000000e+00    |
+| x4 (style_avg_rating)| -0.001109  | 5.017367e-42     |
+| x5 (appearance)     | 0.076178    | 0.000000e+00     |
+| x6 (aroma)          | 0.209587    | 0.000000e+00     |
+| x7 (palate)         | 0.115837    | 0.000000e+00     |
+| x8 (taste)          | 0.348882    | 0.000000e+00     |
+| x9 (season_Spring)  | -0.000281   | 9.979510e-07     |
+| x10 (season_Summer) | -0.000373   | 6.309549e-11     |
+| x11 (season_Winter) | -0.000328   | 1.052942e-08     |
 
+When we observe the results, all p-values of variables are zero or extremely small (way below 0.05), indicating that all coefficients are statistically significant.
 
-From the results, we found that the main predictors of beer ratings were the **Brewery Average Rating**, which had the strongest influence, followed by **User Average Rating** and **Style Average Rating**, which also had significant but smaller effects. The **ABV (Alcohol By Volume)** had a small but positive effect. The seasonal coefficients for **Spring (+0.0013)**, **Summer (-0.0035)**, and **Winter (-0.0006)** were very much smaller to the other coefficients, suggesting that seasonal effects, while statistically significant, were minimal. We concluded that seasonal variations had a minor impact on beer ratings compared to other factors such as user and brewery average ratings.
+When we observe the features, taste (0.3489), aroma (0.2096), appearance (0.0762), and palate (0.1158) had the biggest positive effects on beer ratings, showing that these attributes strongly influence higher ratings. On the other hand, user_avg_rating (-0.0003) and style_avg_rating (-0.0011) had small negative effects, while brewery_avg_rating (0.0152) slightly increased ratings.
 
+The coefficients of season_Spring, season_Summer and season_Winter are very close to zero, hence we conclude that the seasonal changes on beer ratings is very small.
 
 #### **Predicted ratings across seasons**
 
@@ -91,9 +97,9 @@ Using the regression coefficients, we calculated predicted ratings for each beer
 
 | **Season** | **Average Predicted Rating** |
 |------------|-----------------------------|
-| Spring     | 4.058                       |
-| Summer     | 4.054                       |
-| Winter     | 4.057                       |
+| Spring     | 3.552208                       |
+| Summer     | 3.552115                      |
+| Winter     | 3.552161                       |
 
 
 We concluded from the data that the average ratings remain consistent across seasons. The bar chart below illustrates the minimal difference in average ratings across Spring, Summer, and Winter. These results were expected from the small values of the season coefficients in the linear regression model.
@@ -113,7 +119,7 @@ In the heatmap below, we observe that most beer styles show little color variati
 
 For a more fine-grained analysis, we decided to look at the seasonal variations of several subsets of beer styles. First, we considered the 10 beer styles with the highest average predicted rating by the model.
 
-The line plot for the top-rated beer styles shows subtle fluctuations across seasons. Predicted ratings for styles like American Double/Imperial Stout and Quadruple (Quad) remain consistently high with minimal variation.
+The line plot for the top-rated beer styles shows subtle fluctuations across seasons. Predicted ratings for styles like American Double/Imperial Stout, Gueuze, Quadruple (Quad) remain consistently high with minimal variation.
 
 For instance, the predicted ratings for American Double/Imperial Stout are 4.85 in the spring, 4.84 in summer and 4.85 in winter. We concluded from these results that for the highest-rated beer styles, ratings are consistent regardless of the season.
 
