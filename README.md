@@ -49,7 +49,7 @@ In this way, some of the differences were statistically significant. However, st
 
 In the plot, few boxes contain zero (zero is not comprised between Q1 and Q3), which indicates that for most of the top 10 country pairs with the lowest p-values, ratings from one country are consistently higher or lower than those from the other country for most paired reviews in the sample. This implies that the majority of matched reviews for most of of these country pairs show a meaningful and unidirectional difference in ratings. In addition, the median for some country pairs is larger than 1 in absolute value. A difference of 1 out of 5 is large, which means that for these country pairs, the differences in ratings are not only statistically significant but also meaningful from a practical standpoint.
 
-### **Conclusion**
+### **Conclusion cultural bias**
 These results suggested that, after accounting for potential confounders, users from certain countries appear more generous in their ratings compared to users from other countries. There seemed to be clear trends in rating differences for certain country pairs, and the differences in ratings appeared significant from both a statistical and practical standpoint for these pairs. These findings align with the hypothesis that a "cultural bias" might influence beer reviewers, potentially impacting beer ratings.
 
 However, the matching process did not yield sufficient matches for all countries, which restricted our ability to make meaningful comparisons across a broader range of country pairs. In addition, a significant bias was only observed for some specific country pairs, meaning the results did not support the conclusion that this bias is a general or universal phenomenon. These observations highlighted the need for further investigation to clarify the role of cultural biases in beer ratings.
@@ -89,7 +89,7 @@ We also visualized the distribution of rating differences between matched review
 ![top 10 countries boxplot enthusiasts](plots/beer_origin_bias_plot4.png)
 
 
-#### **Conclusion**
+#### **Conclusion beer origin bias**
 These results indicate that a beer's status as domestic or foreign to the user does not appear to influence their ratings. This was expected for beer enthusiasts, but our findings suggested that this holds true when considering all users together.
 
 
@@ -161,7 +161,7 @@ For a more fine-grained analysis, we decided to look at the seasonal variations 
 The flat lines in the two plots above indicated that there was no noticeable variation across seasons for both top-rated and poorly-rated beer styles. These results suggested again that seasons did not seem to be an important factor in determining final beer ratings.
  
 
-#### **Conclusion**
+#### **Conclusion seasonal biases**
 Our analysis suggested that seasonal variations do not appear to have a practically significant impact on beer ratings. Other factors, such as attribute ratings and user and brewery average ratings seem to play a much larger role in determining beer ratings.
 
 
@@ -205,7 +205,7 @@ The t-tests that we had performed had detected a statistically significant diffe
 
 These results illustrated the difference between statistical and practical significance: while the t-tests demonstrated a statistically significant difference (probably because of the large sample size, which could make even small differences statistically significant), the actual effect size (difference in final ratings between matched reviews) was small and not practically meaningful. New reviewers appear to be slightly more generous than experts on average, but the difference is minimal and likely negligible in practical terms.
 
-#### **Conclusion**
+#### **Conclusion experience bias**
 Both the linear regression and the paired analysis found that user experience level influences ratings, with more experienced users being slightly more critical. However, the effect appeared statistically significant but numerically small, suggesting that experience level has a minor impact on ratings compared to other factors like beer style, brewery reputation, and user generosity.
 
 
