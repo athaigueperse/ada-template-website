@@ -37,7 +37,7 @@ We used these propensity scores to match individual reviews from reviewers in on
 #### **Paired analysis**
 To be able to determine whether users from certain countries are more generous or more critical in their ratings compared to users from other countries, we compared paired rating differences between all pairs of user location. To do so, we grouped the matched reviews by country pairs and performed a paired t-test for each group to test whether the mean difference in ratings was significantly different from zero. We only considered country pairs with at least 20 matched reviews. We then plotted the obtained p_values for each country pair to see if there were some significant differences in final beer ratings for some country pairs at a 5% significance level. The results are shown in the plot below.
 
-![P value plot](plots/cultural_biases_plot_1.png)
+![P value plot](plots/cultural_bias_plot_1.png)
 
 As shown by the small number of data points in the plot, few country pairs had enough matches to be included in the analysis.
 
@@ -45,7 +45,7 @@ The colored dots below the y=0.05 line indicate that there were some country pai
 
 In this way, some of the differences were statistically significant. However, statisticals significance does not imply practical significance. In order to determine if these differences were also meaningful from a practical standpoint, we decided to look at their magnitude. We plotted a boxplot to visualize the distribution of differences in final beer rating between matched reviews for the 10 country pairs for which the t-test yielded the lowest p-values. We obtained the figure below.
 
-![rating difference boxplot](plots/cultural_biases_plot_2.png)
+![rating difference boxplot](plots/cultural_bias_plot_2.png)
 
 In the plot, few boxes contain zero (zero is not comprised between Q1 and Q3), which indicates that for most of the top 10 country pairs with the lowest p-values, ratings from one country are consistently higher or lower than those from the other country for most paired reviews in the sample. This implies that the majority of matched reviews for most of of these country pairs show a meaningful and unidirectional difference in ratings. In addition, the median for some country pairs is larger than 1 in absolute value. A difference of 1 out of 5 is large, which means that for these country pairs, the differences in ratings are not only statistically significant but also meaningful from a practical standpoint.
 
