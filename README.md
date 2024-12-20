@@ -90,7 +90,7 @@ We can observe that the non-US clusters show similar rating tendencies: for inst
 Overall, our attempt to cluster countries based on beer ratings, using the number of reviews and the average rating for different beer styles as features, did not allow us to identify clearly distinct groups of countries. While the United States stood out as a unique cluster due to its distinct preferences, other non-U.S. clusters were less clearly separated and shared similar rating tendencies. A possible cause may be the skewness of the distribution of reviewer locations in the dataset: the vast majority of reviewers came either from the United States or from Europe. This may have have constrained the analysis and limited the number of meaningfully distinct clusters that could be identified.
 
 
-### Importance of specific beer attributes
+## Importance of specific beer attributes
 _Does the significance of specific beer attributes in determining one’s liking of a given beer vary by country?_
 
 
