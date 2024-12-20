@@ -20,6 +20,7 @@ In this part, we examine how different beer styles are reviewed across different
 
 - In the second part, we used the time information in reviews to determine if regional beer style preferences, which were found in the previous part, remain stable over time — supporting the hypothesis that they are influenced by culture — or if they fluctuate, suggesting other contributing factors.
 
+## Initial Analysis
 Starting from P2, we made inital analyses and showed the results below which also helped that detecting the core problems and how we could proceed to find the regional preferences.
 
 ![Wordcloud plot](plots/beer_style_preferences_plot3.png)
@@ -30,22 +31,48 @@ The word cloud maps and histograms show that the distribution of ratings of popu
 
 On the other hand, the right chart reveals that specific beer styles dominate in popularity. "American IPA" leads with over 550,000 ratings, followed by "India Pale Ale (IPA)" at around 500,000 ratings. Other styles like "Imperial Stout" and "Pale Ale" also feature prominently, with over 200,000 ratings each.
 
+##  Preparing and Visualization of the Data
 
-![plots3](plots/beer_style_preferences_plot4.png)
+![3D_scatter_PCA](plots/beer_style_preferences_plot4.png)
 
-![plots6](plots/beer_style_preferences_plot6.png)
-
-![plots7](plots/beer_style_preferences_plot7.png)
-
-![plots8](plots/beer_style_preferences_plot8.png)
-
-![plots9](plots/beer_style_preferences_plot9.png)
-
-![plots10](plots/beer_style_preferences_plot10.png)
-
-![plots11](plots/beer_style_preferences_plot11.png)
+comments are coming...
 
 
+![silhoutte_elbow](plots/beer_style_preferences_plot6.png)
+
+![clustering](plots/beer_style_preferences_plot7.png)
+
+![preferences_top5_histogram_v1](plots/beer_style_preferences_plot8.png)
+
+comments are coming...
+
+
+## Regional Beer Preferences Over Time
+
+After clustering, it seems that cluster 1 is one-to-one mapping into the North America region. We want to see that how average ratings from worldwide beer styles of different regions (American IPA from North America and Pale Lager from European regions) have evolved over time.
+
+![preferences_over_time0](plots/beer_style_preferences_plot13.png)
+
+For the sake of simplicity of the plot, since trends are obvious, we will not plot the linear models. First of all, average ratings show that American IPA is more preferable than Pale Lager in United States and Canada. Time evolution of the average ratings reveals that American IPA ratings remain relatively stable for these countries, suggesting a steady but not noticeably increasing interest. Interestingly, Pale Lager ratings in these two countries increase constantly over time. It suggests that there is a noticeable evolution in tastes over time, likely driven by global beer trends and expanding market availability, challenging the idea of stable and regionally bound beer preferences.
+
+![preferences_over_time1](plots/beer_style_preferences_plot12.png)
+
+comments are coming...
+
+## Adding Average Ratings into the Account
+
+comments are coming...
+
+
+![clustering2](plots/beer_style_preferences_plot9.png)
+
+![preferences_top5_histogram2](plots/beer_style_preferences_plot10.png)
+
+comments are coming...
+
+![preferences_over_time2](plots/beer_style_preferences_plot11.png)
+
+comments are coming...
 
 ### Importance of specific beer attributes
 _Does the significance of specific beer attributes in determining one’s liking of a given beer vary by country?_
