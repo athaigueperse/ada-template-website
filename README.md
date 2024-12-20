@@ -30,7 +30,6 @@ The word cloud maps and histograms show that the distribution of ratings of popu
 
 On the other hand, the right chart reveals that specific beer styles dominate in popularity. "American IPA" leads with over 550,000 ratings, followed by "India Pale Ale (IPA)" at around 500,000 ratings. Other styles like "Imperial Stout" and "Pale Ale" also feature prominently, with over 200,000 ratings each.
 
-![plots2](plots/beer_style_preferences_plot3.png)
 
 ![plots3](plots/beer_style_preferences_plot4.png)
 
