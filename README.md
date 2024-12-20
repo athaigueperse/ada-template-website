@@ -133,13 +133,13 @@ Here we  applied Lasso and Ridge regularization techniques to the dataset to inv
 ### Country Specific Linear Regression Analysis 
 
 
-![Box_plot](plots/importance_of_beer_attribitus_plot_11.png)
+![Box_plot](plots/importance_of_beer_attribitus_plot_12.png)
 
 Here we conducted linear regression analyses for each country, revealing how beer attributes and confounders influence ratings globally.
 Taste remained as the most influential factor across countries, with the boxplot illustrating its dominance through the highest median coefficient and widest interquartile range. This variation indicates country-specific differences in the importance placed on taste. Aroma consistently ranked second, with more tightly clustered coefficients, indicating general agreement on its significance. Palate and appearance contributed positively but less prominently, with regional variations suggesting some countries value visual or texture-related qualities more (in relative to other countries).
 Brewery reputation shows moderate influence, highlighting its subtle role in shaping perceptions but remaining secondary to core beer qualities. Style rating has the least impact, suggesting users prioritize sensory attributes like taste and aroma over beer style classification.
 
-![Box_plot](plots/importance_of_beer_attribitus_plot_12.png) 
+![Box_plot](plots/importance_of_beer_attribitus_plot_13.png) 
 
 Here, we grouped countries into geographical regions to analyze if beer attribute preferences exhibit regional patterns and how the importance of specific attributes varies across regions. Taste consistently holds the highest coefficient globally, with aroma, palate, and appearance showing slight inter-regional deviations. Western Europe, Eastern Europe, and North America showed tight clustering of coefficients, while Latin America and Eastern Asia display larger variance. his indicated that statistical noise, not genuine preference differences, may drive the higher variance in these regions..It is also important to mention that North America, despite having only two countries (USA and Canada), showed highly consistent results, likely due to the largeness of USA as reviewer database. Style and brewery ratings had smaller coefficients, reflecting their secondary role in evaluations.
 
