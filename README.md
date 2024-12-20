@@ -20,7 +20,7 @@ In this part, we examine how different beer styles are reviewed across different
 
 - In the second part, we used the time information in reviews to determine if regional beer style preferences, which were found in the previous part, remain stable over time — supporting the hypothesis that they are influenced by culture — or if they fluctuate, suggesting other contributing factors.
 
-## Initial Analysis
+### Initial Analysis
 Starting from P2, we made inital analyses and showed the results below which also helped that detecting the core problems and how we could proceed to find the regional preferences.
 
 ![Wordcloud plot](plots/beer_style_preferences_plot3.png)
@@ -31,7 +31,7 @@ The word cloud maps and histograms show that the distribution of ratings of popu
 
 On the other hand, the right chart reveals that specific beer styles dominate in popularity. "American IPA" leads with over 550,000 ratings, followed by "India Pale Ale (IPA)" at around 500,000 ratings. Other styles like "Imperial Stout" and "Pale Ale" also feature prominently, with over 200,000 ratings each.
 
-##  Preparing and Visualization of the Data
+### Preparing and Visualization of the Data
 
 ![3D_scatter_PCA](plots/beer_style_preferences_plot4.png)
 
@@ -47,7 +47,7 @@ comments are coming...
 comments are coming...
 
 
-## Regional Beer Preferences Over Time
+### Regional Beer Preferences Over Time
 
 After clustering, it seems that cluster 1 is one-to-one mapping into the North America region. We want to see that how average ratings from worldwide beer styles of different regions (American IPA from North America and Pale Lager from European regions) have evolved over time.
 
@@ -59,7 +59,7 @@ For the sake of simplicity of the plot, since trends are obvious, we will not pl
 
 comments are coming...
 
-## Adding Average Ratings into the Account
+### Adding Average Ratings into the Account
 
 comments are coming...
 
