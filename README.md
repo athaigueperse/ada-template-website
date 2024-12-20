@@ -52,13 +52,19 @@ _Does the significance of specific beer attributes in determining one’s liking
 
 
 To begin this analysis, our initial step was to check the compatibility of the rating styles across the databases. During this process, we realized there were some differences in the rating systems of the databases as seen in the histogram plots below , which we resolved accordingly by scaling.
+
 ![Histograms](plots/importance_of_beer_attribitus_plot_1.1.png)
 ![Histograms](plots/importance_of_beer_attribitus_plot_1.2.png)
+
 We continued by surveying how much reviews we had from each country. This is shown here in the below bar plot
 (Countries with fewer reviwers than 50 were cut and USA is not included here as it has much more reviewers that it distrupts the homogenity of the plot)
+
 ![Bar_plot](plots/importance_of_beer_attribitus_plot_3.png)
+
 We also examined the collinearity between beer attributes and visualization of these relationships can be seen in the below heatmap. Based on the insights gained from these evaluations, we developed a linear regression function equipped with utilities to detect and address collinearity issues if they arose.
+
 ![heatmap](plots/importance_of_beer_attribitus_plot_6.png)
+
 Our plan moving forward was to split the analysis into two parts: first, a global linear analysis to assess the overall importance of each attribute, and second, a country-specific analysis to determine whether any deviations from the global trends could be observed.
 ### Total Linear Regression Analysis 
 - **Dependent variable**: Final Beer Rating  
@@ -72,33 +78,29 @@ Our plan moving forward was to split the analysis into two parts: first, a globa
 Linear regression analysis of the total dataset showed us that the model provided nearly perfect fit to the data, since the R squared values for both the training and testing data was 0.97.These values indicatet that 97% of the variance in the final beer ratings could be explained by the the beer attributes as well as confounder variables such as brewery_avg_rating and style_avg_rating. The high F-statistic and its associated p-value close to zero further confirmed the model’s statistical significance. The MSE values for both training and testing datasets indicated that the linear model generalizes well, with low MSE showing accurate predictions. The regression coefficients highlighted the relative importance of different beer attributes:
 Taste(0.356) had the most importance followed by aroma(0.2115),palate(0.1164) and finally appearence(0.0769).
 Brewery reputation(0.0157) had subtle  but noticeable influences,while the effect of beer style was minimal.The residual plots showed symmetric distribution, indicating no systematic bias. The actual vs predicted plots demonstrated strong predictive accuracy. In conclusion, the model provided solid insights into factors influencing beer ratings, confirming taste as the dominant attribute.
-OLS Regression Results                            
-==============================================================================
-Dep. Variable:                 rating   R-squared:                       0.970
-Model:                            OLS   Adj. R-squared:                  0.970
-Method:                 Least Squares   F-statistic:                 4.513e+07
-Date:                Fri, 20 Dec 2024   Prob (F-statistic):               0.00
-Time:                        04:09:48   Log-Likelihood:             5.6712e+06
-No. Observations:             8325434   AIC:                        -1.134e+07
-Df Residuals:                 8325427   BIC:                        -1.134e+07
-Df Model:                           6                                         
-Covariance Type:            nonrobust                                         
-==============================================================================
-                 coef    std err          t      P>|t|      [0.025      0.975]
-------------------------------------------------------------------------------
-const          3.5296   4.24e-05   8.32e+04      0.000       3.530       3.530
-x1             0.0769   5.78e-05   1330.489      0.000       0.077       0.077
-x2             0.2115   8.08e-05   2618.000      0.000       0.211       0.212
-x3             0.1165   6.81e-05   1710.368      0.000       0.116       0.117
-x4             0.3558   8.54e-05   4168.911      0.000       0.356       0.356
-x5             0.0157   7.29e-05    215.683      0.000       0.016       0.016
-x6             0.0004   7.02e-05      5.178      0.000       0.000       0.001
-==============================================================================
-Omnibus:                  1110130.223   Durbin-Watson:                   2.000
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):         14874152.036
-Skew:                          -0.033   Prob(JB):                         0.00
-Kurtosis:                       9.548   Cond. No.                         5.10
-==============================================================================
+
+### OLS Regression Results
+
+| Dep. Variable:                 | rating           | R-squared:          | 0.970           |
+|--------------------------------|------------------|---------------------|------------------|
+| Model:                         | OLS              | Adj. R-squared:     | 0.970           |
+| Method:                        | Least Squares    | F-statistic:        | 4.513e+07       |
+| Date:                          | Fri, 20 Dec 2024 | Prob (F-statistic): | 0.00            |
+| Time:                          | 04:09:48         | Log-Likelihood:     | 5.6712e+06      |
+| No. Observations:              | 8325434          | AIC:                | -1.134e+07      |
+| Df Residuals:                  | 8325427          | BIC:                | -1.134e+07      |
+| Df Model:                      | 6                |                     |                 |
+| Covariance Type:               | nonrobust        |                     |                 |
+
+|                 | coef     | std err    | t         | P>|t|    | [0.025    | 0.975]   |
+|-----------------|----------|------------|-----------|---------|-----------|----------|
+| const           | 3.5296   | 4.24e-05   | 8.32e+04  | 0.000   | 3.530     | 3.530    |
+| x1              | 0.0769   | 5.78e-05   | 1330.489  | 0.000   | 0.077     | 0.077    |
+| x2              | 0.2115   | 8.08e-05   | 2618.000  | 0.000   | 0.211     | 0.212    |
+| x3              | 0.1165   | 6.81e-05   | 1710.368  | 0.000   | 0.116     | 0.117    |
+| x4              | 0.3558   | 8.54e-05   | 4168.911  | 0.000   | 0.356     | 0.356    |
+| x5              | 0.0157   | 7.29e-05   | 215.683   | 0.000   | 0.016     | 0.016    |
+| x6              | 0.0004   | 7.02e-05   | 5.178     | 0.000   | 0.000     | 0.001    |
 
 Notes:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
@@ -110,7 +112,37 @@ Testing MSE: 0.015048324437271856 Testing R2: 0.9700590232120285 Testing Pearson
 ![Residual plot](plots/importance_of_beer_attribitus_plot_9.png)
 ![Actual vs predicted](plots/importance_of_beer_attribitus_plot_10.png)
 
+Here in this barplot we can see how beer attributes scale against each other, this plot helps us to visualize the dominance of the taste for beer ratings
 
+![Bar_plot](plots/importance_of_beer_attribitus_plot_11.png)
+
+### Regression Results Comparison
+
+| Attribute                  | Linear Regression | Lasso Regression | Ridge Regression |
+|----------------------------|-------------------|------------------|------------------|
+| Appearance (x1)            | 0.076925          | 0.076894         | 0.076925         |
+| Aroma (x2)                 | 0.211487          | 0.211559         | 0.211487         |
+| Palate (x3)                | 0.116545          | 0.116521         | 0.116545         |
+| Taste (x4)                 | 0.355850          | 0.355793         | 0.355850         |
+| Brewery Avg. Rating (x5)   | 0.015719          | 0.015668         | 0.015719         |
+| Beer Avg. Rating (x6)      | 0.000364          | 0.000320         | 0.000364         |
+
+Here we  applied Lasso and Ridge regularization techniques to the dataset to investigate potential multicollinearity among the predictor variables.These methods enhance the standard linear regression model by introducing penalties to the coefficients, helping to manage both multicollinearity and overfitting.Comparison of the  results of these analyses indicate that multicollinearity is not a significant issue in the dataset As we can see from the table, results across normal linear regression, lasso, and ridge were very close as all methods produced nearly identical coefficients(identical in case of ridge and normal linear regression).These analyse again showed us the reliability of the linear regression model and the stability of the coefficients given to the attributes
+
+### Country Specific Linear Regression Analysis 
+
+
+![Box_plot](plots/importance_of_beer_attribitus_plot_11.png)
+
+Here we conducted linear regression analyses for each country, revealing how beer attributes and confounders influence ratings globally.
+Taste remained as the most influential factor across countries, with the boxplot illustrating its dominance through the highest median coefficient and widest interquartile range. This variation indicates country-specific differences in the importance placed on taste. Aroma consistently ranked second, with more tightly clustered coefficients, indicating general agreement on its significance. Palate and appearance contributed positively but less prominently, with regional variations suggesting some countries value visual or texture-related qualities more (in relative to other countries).
+Brewery reputation shows moderate influence, highlighting its subtle role in shaping perceptions but remaining secondary to core beer qualities. Style rating has the least impact, suggesting users prioritize sensory attributes like taste and aroma over beer style classification.
+
+![Box_plot](plots/importance_of_beer_attribitus_plot_12.png) 
+
+Here, we grouped countries into geographical regions to analyze if beer attribute preferences exhibit regional patterns and how the importance of specific attributes varies across regions. Taste consistently holds the highest coefficient globally, with aroma, palate, and appearance showing slight inter-regional deviations. Western Europe, Eastern Europe, and North America show tight clustering of coefficients, while Latin America and Eastern Asia display larger variance. This suggests that statistical noise, not genuine preference differences, may drive the higher variance in these regions. Style and brewery ratings have smaller coefficients, reflecting their secondary role in evaluations.
+
+Overall, this analysis shows consistent global importance of beer attributes, with regional nuances influenced by sample size, reviewer distribution, and cultural factors. Social effects, like brewery reputation, play a minor role compared to sensory attributes. Despite small deviations between countries, the order of attribute importance remains stable, with Taste as the dominant factor. This demonstrates a global agreement on the importance scale, with variations limited to minor coefficient differences across regions.
 
 
 ## <a id="Location_related_biases_in_ratings"></a> Location-related biases in ratings
