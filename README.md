@@ -99,7 +99,7 @@ To begin this analysis, our initial step was to check the compatibility of the r
 ![Histograms](plots/importance_of_beer_attribitus_plot_1.1.png)
 ![Histograms](plots/importance_of_beer_attribitus_plot_1.2.png)
 
-By looking at the histograms we also realized that the ratings in the Rate Beer were more harsh compared to the Beer Advocate and they were generally lower.Also to note the rating syszem of Rate Beer seems to more strict only allowing 0.5 increments while the Beer Advocate ratings can be more precise
+By looking at the histograms we also realized that the ratings in the Rate Beer were more harsh compared to the Beer Advocate and they were generally lower.Also to note the rating system of Rate Beer seemed to be more strict, only allowing 0.5 increments while the Beer Advocate ratings can be more precise
 
 We continued by surveying how much reviews we had from each country. This is shown here in the below bar plot
 (Countries with fewer reviwers than 50 were cut and USA is not included here as it has much more reviewers that it distrupts the homogenity of the plot). This plot was very important to keep in mind, while analysing the results as data amount directly affects  country specific analyses
@@ -128,26 +128,27 @@ Brewery reputation (0.0157) had subtle  but noticeable influences,while the effe
 
 ### OLS Regression Results
 
-| Dep. Variable:                 | rating           | R-squared:          | 0.970           |
-|--------------------------------|------------------|---------------------|------------------|
-| Model:                         | OLS              | Adj. R-squared:     | 0.970           |
-| Method:                        | Least Squares    | F-statistic:        | 4.513e+07       |
-| Date:                          | Fri, 20 Dec 2024 | Prob (F-statistic): | 0.00            |
-| Time:                          | 04:09:48         | Log-Likelihood:     | 5.6712e+06      |
-| No. Observations:              | 8325434          | AIC:                | -1.134e+07      |
-| Df Residuals:                  | 8325427          | BIC:                | -1.134e+07      |
-| Df Model:                      | 6                |                     |                 |
-| Covariance Type:               | nonrobust        |                     |                 |
+| Dep. Variable:           | rating         | R-squared:          | 0.970           |
+|--------------------------|----------------|---------------------|------------------|
+| Model:                   | OLS            | Adj. R-squared:     | 0.970           |
+| Method:                  | Least Squares  | F-statistic:        | 4.513e+07       |
+| Date:                    | Fri, 20 Dec 2024 | Prob (F-statistic): | 0.00            |
+| Time:                    | 04:09:48       | Log-Likelihood:     | 5.6712e+06      |
+| No. Observations:        | 8325434        | AIC:                | -1.134e+07      |
+| Df Residuals:            | 8325427        | BIC:                | -1.134e+07      |
+| Df Model:                | 6              |                     |                 |
+| Covariance Type:         | nonrobust      |                     |                 |
 
-|                 | coef     | std err    | t         | P> t    | 0.025     |  0.975  |
-|-----------------|----------|------------|-----------|---------|-----------|----------|
-| const           | 3.5296   | 4.24e-05   | 8.32e+04  | 0.000   | 3.530     | 3.530    |
-| x1              | 0.0769   | 5.78e-05   | 1330.489  | 0.000   | 0.077     | 0.077    |
-| x2              | 0.2115   | 8.08e-05   | 2618.000  | 0.000   | 0.211     | 0.212    |
-| x3              | 0.1165   | 6.81e-05   | 1710.368  | 0.000   | 0.116     | 0.117    |
-| x4              | 0.3558   | 8.54e-05   | 4168.911  | 0.000   | 0.356     | 0.356    |
-| x5              | 0.0157   | 7.29e-05   | 215.683   | 0.000   | 0.016     | 0.016    |
-| x6              | 0.0004   | 7.02e-05   | 5.178     | 0.000   | 0.000     | 0.001    |
+|                 | coef     | std err    | t         | P>|t|   | 0.025     | 0.975     |
+|-----------------|----------|------------|-----------|-------|-----------|-----------|
+| const           | 3.5296   | 4.24e-05   | 8.32e+04  | 0.000 | 3.530     | 3.530     |
+| x1              | 0.0769   | 5.78e-05   | 1330.489  | 0.000 | 0.077     | 0.077     |
+| x2              | 0.2115   | 8.08e-05   | 2618.000  | 0.000 | 0.211     | 0.212     |
+| x3              | 0.1165   | 6.81e-05   | 1710.368  | 0.000 | 0.116     | 0.117     |
+| x4              | 0.3558   | 8.54e-05   | 4168.911  | 0.000 | 0.356     | 0.356     |
+| x5              | 0.0157   | 7.29e-05   | 215.683   | 0.000 | 0.016     | 0.016     |
+| x6              | 0.0004   | 7.02e-05   | 5.178     | 0.000 | 0.000     | 0.001     |
+
 
 Notes:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
@@ -187,7 +188,7 @@ Brewery reputation showed moderate influence, highlighting its subtle role in sh
 
 ![Box_plot](plots/importance_of_beer_attribitus_plot_13.png) 
 
-Here, we grouped countries into geographical regions to analyze if beer attribute preferences exhibit regional patterns and how the importance of specific attributes varies across regions. Taste consistently held the highest coefficient globally, with aroma, palate, and appearance showing slight inter-regional deviations. Western Europe, Eastern Europe, and North America showed tight clustering of coefficients, while Latin America and Eastern Asia displayed larger variance.This indicated that statistical noise, not genuine preference differences, may drive the higher variance in these regions.It is also important to mention that North America, despite having only two countries (USA and Canada), showed highly consistent results, likely due to the largeness of USA as reviewer database. Style and brewery ratings had smaller coefficients, reflecting their secondary role in evaluations.
+Here, we grouped countries into geographical regions to analyze if beer attribute preferences exhibit regional patterns and how the importance of specific attributes varies across regions. Taste consistently held the highest coefficient globally, with aroma, palate, and appearance following it in the same order as always. Western Europe, Eastern Europe, and North America showed tight clustering of coefficients, while Latin America and Eastern Asia displayed larger variance.This indicated that statistical noise, not genuine preference differences, may drive the higher variance in these regions.It is also important to mention that North America, despite having only two countries (USA and Canada), showed highly consistent results, likely due to the largeness of USA as reviewer database. Style and brewery ratings had smaller coefficients, reflecting their secondary role in evaluations.
 
 Overall, this analysis showed consistent global importance of beer attributes, with regional nuances influenced by sample size, reviewer distribution, and cultural factors. Social effects, like brewery reputation, played a minor role compared to sensory attributes. Despite small deviations between countries, the order of attribute importance remained stable, with Taste as the dominant factor. This demonstrated a global agreement on the importance scale, with variations limited to minor coefficient differences across regions.
 
