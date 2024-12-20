@@ -33,18 +33,25 @@ On the other hand, the right chart reveals that specific beer styles dominate in
 
 ### Preparing and Visualization of the Data
 
+As discussed at the beginning, first we started with the data which we have countries, beer styles and number of ratings for these styles in each country. We sorted the countries according to their regions (we group them using their region information from United Nations geographical subregions and other widely known classifications). Then we used to PCA to transform this three dimensional data into two dimensional one and also used logarithmic scaling to eliminate unwanted effects coming from U.S. where we have relatively many more users than other countries. This analysis demonstrates how PCA effectively reduces the dimensionality of the data with showing how beer styles contribute to differences in preferences among countries.
+
 ![3D_scatter_PCA](plots/beer_style_preferences_plot4.png)
 
-comments are coming...
+Even though PCA loadings demonstrate that how beer styles contribute to the preferences among countries, it does not explicitly show that what are the regional beer preferences in the clustered regions. This is why after clustering, we also investigated every regions' data separately and plotted their top 5 preferred beer styles.
 
+After having the 2D dimensional data, we started to cluster it with using unsupervised learning algorithm which is K-means since we want to learn from data and discover whether there is any interesting regional preferences or not. And we should decide the optimum number of clusters for that reason.
 
 ![silhoutte_elbow](plots/beer_style_preferences_plot6.png)
+
+These two decision makers suggested that we should choose optimum number of clusters as n = 5 since at this point, we have approximately the highest silhoutte score and the sudden rate of change between n = 4 to 5 looks like an elbow point of the plot.
+
+The results of the analysis are shown as follows.
 
 ![clustering](plots/beer_style_preferences_plot7.png)
 
 ![preferences_top5_histogram_v1](plots/beer_style_preferences_plot8.png)
 
-comments are coming...
+As illustrated in these plots, the PCA-transformed scatter plot shows that countries like the United States and Canada (Cluster 1) stand out due to their strong preference for hop-forward styles such as American IPA and Imperial IPA. In contrast, European countries like Denmark, Norway, and Poland (Cluster 3) display a preference for traditional styles like Imperial Stout and Bitter. In Cluster 0, including countries like Slovakia and Latvia, has a more balanced preference with Pale Lager and Belgian Strong Ale dominating. The top 5 beer styles in each cluster further demonstrates these distinctions with showing clear dominance of specific styles within each region that reflects cultural and regional brewing traditions.
 
 
 ### Regional Beer Preferences Over Time
@@ -54,6 +61,7 @@ After clustering, it seems that cluster 1 is one-to-one mapping into the North A
 ![preferences_over_time0](plots/beer_style_preferences_plot13.png)
 
 For the sake of simplicity of the plot, since trends are obvious, we will not plot the linear models. First of all, average ratings show that American IPA is more preferable than Pale Lager in United States and Canada. Time evolution of the average ratings reveals that American IPA ratings remain relatively stable for these countries, suggesting a steady but not noticeably increasing interest. Interestingly, Pale Lager ratings in these two countries increase constantly over time. It suggests that there is a noticeable evolution in tastes over time, likely driven by global beer trends and expanding market availability, challenging the idea of stable and regionally bound beer preferences.
+
 
 ![preferences_over_time1](plots/beer_style_preferences_plot12.png)
 
