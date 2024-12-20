@@ -139,7 +139,7 @@ Brewery reputation (0.0157) had subtle  but noticeable influences,while the effe
 | Df Model:                | 6              |                     |                 |
 | Covariance Type:         | nonrobust      |                     |                 |
 
-|                 | coef     | std err    | t         | P>|t|   | 0.025     | 0.975     |
+|                 | coef     | std err    | t         | P>t   | 0.025     | 0.975     |
 |-----------------|----------|------------|-----------|-------|-----------|-----------|
 | const           | 3.5296   | 4.24e-05   | 8.32e+04  | 0.000 | 3.530     | 3.530     |
 | x1              | 0.0769   | 5.78e-05   | 1330.489  | 0.000 | 0.077     | 0.077     |
