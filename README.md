@@ -33,8 +33,6 @@ On the other hand, the right chart reveals that specific beer styles dominate in
 
 ![plots3](plots/beer_style_preferences_plot4.png)
 
-![plots5](plots/beer_style_preferences_plot5.png)
-
 ![plots6](plots/beer_style_preferences_plot6.png)
 
 ![plots7](plots/beer_style_preferences_plot7.png)
