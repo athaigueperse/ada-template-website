@@ -49,7 +49,7 @@ On the other hand, the right chart reveals that specific beer styles dominate in
 
 ### Importance of specific beer attributes
 _Does the significance of specific beer attributes in determining one’s liking of a given beer vary by country?_
-![plots12](plots/importance_of_beer_attribitus_plot_1.1.png)
+![Beer Style Preferences Plot](importance_of_beer_attribitus_plot_1.1.png)
 
 To start this analysis, our first instinct was to check the compatibility of the rating styles between the databases. We encountered a few minor scaling issues and addressed them accordingly.We checked the colinearities between beer attributes and visualized it using heatmaps.From the information we gained from these examinations, we created a linear regression function that had multiple utils to check and correct colinearity if it arised. Our plan for moving forward was to slpit the analyses into two parts: Firstly a total linear analysis to examine timportance of each attribute globally and then secondly, doing the same analyses for each country and determine if there were any diversions from the global results  
 
