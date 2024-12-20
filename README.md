@@ -14,7 +14,39 @@ We decided to start our analysis by investigating how the origin of reviewers in
 ### Beer style preferences
 _How do beer style preferences differ between countries, and are these regional preferences stable over time?_
 
+In this part, we examine how different beer styles are reviewed across different countries. 
+
+- In our analysis, we approached features in two scopes: first, we started with the number of ratings of certain beer styles as features of a given country to determine if certain countries cluster together in terms of beer style preferences. Secondly, we added average ratings of each beer style from each country as an additional feature to our previous data and then reduced this fourth dimensional dataframe to third dimensional one via merging these two features. Our initial analysis in P2 showed that we should group together the countries according to their actual regions since clustering dependent on Euclidean distances between these points. Then, we used principal component analysis to reduce 3D data into 2D mapping and via unsupervised clustering algorithm (K-means), we clustered the data. An optimal number of clusters were chosen according to Silhouette and Inertia scores(Elbow Method) to find a consistent one based on these two decision makers. After this step, regions were plotted with the PCA loadings. However, we cannot directly understand the regional beer preferences using PCA loadings; therefore, in each region,  we found the top 5 beer styles and plotted them as multiple bar plots. 
+
+- In the second part, we used the time information in reviews to determine if regional beer style preferences, which were found in the previous part, remain stable over time — supporting the hypothesis that they are influenced by culture — or if they fluctuate, suggesting other contributing factors.
+
+Starting from P2, we made inital analyses and showed the results below which also helped that detecting the core problems and how we could proceed to find the regional preferences.
+
 ![Wordcloud plot](plots/beer_style_preferences_plot3.png)
+
+![bar plots](plots/beer_style_preferences_plot1_2.png)
+
+![bar plots](plots/beer_style_preferences_plot1_2.png)
+
+![bar plots](plots/beer_style_preferences_plot4.png)
+
+![bar plots](plots/beer_style_preferences_plot5.png)
+
+![bar plots](plots/beer_style_preferences_plot6.png)
+
+![bar plots](plots/beer_style_preferences_plot7.png)
+
+![bar plots](plots/beer_style_preferences_plot8.png)
+
+![bar plots](plots/beer_style_preferences_plot9.png)
+
+![bar plots](plots/beer_style_preferences_plot10.png)
+
+![bar plots](plots/beer_style_preferences_plot11.png)
+
+The word cloud maps and histograms show that the distribution of ratings of popular beer brands and styles across the world based on BeerAdvocate and RateBeer data. In the left chart, the most-rated beer brand, "St. Bernardus Abt 12," received over 8,000 ratings, followed closely by "Guinness Draught" and other popular brands that have between 5,000 and 8,000 ratings. This partially indicates that there is almost an uniform distribution among the well-known brands. 
+
+On the other hand, the right chart reveals that specific beer styles dominate in popularity. "American IPA" leads with over 550,000 ratings, followed by "India Pale Ale (IPA)" at around 500,000 ratings. Other styles like "Imperial Stout" and "Pale Ale" also feature prominently, with over 200,000 ratings each.
 
 ### Importance of specific beer attributes
 _Does the significance of specific beer attributes in determining one’s liking of a given beer vary by country?_
