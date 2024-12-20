@@ -18,7 +18,7 @@ We began our analysis by trying to apprehend global beer preferences by examinin
 
 Additionally, we used the time information in reviews to determine if beer style preferences in the identified clusters remain stable over time — supporting the hypothesis that they are influenced by culture — or if they fluctuate, suggesting other contributing factors.
 
-### **Initial analysis**
+#### **Initial analysis**
 Before conducting the analysis described above, we first familiarized ourselves with the data by examining the number of reviews for different beers and beer styles across all countries combined.
 
 ![Wordcloud plot](plots/beer_style_preferences_plot3.png)
@@ -29,7 +29,7 @@ The word cloud maps and histograms show the distribution of the number of rating
 
 The right plot revealed that the distribution of the number of ratings for different beer styles was skewed, with specific beer styles dominating in popularity. "American IPA" lead with over 800,000 ratings, followed by "Imperial IPA" at around 700,000 ratings. Other styles like "Imperial Stout" and "India Pale Ale" also feature prominently, with over 500,000 ratings each.
 
-### **Clustering using the number of ratings per beer style as features**
+#### **Clustering using the number of ratings per beer style as features**
 
 We started by visualizing the number of ratings for different beer styles across different countries. In the corresponding 3D scatter plot (shown below), we used logarithmic scaling for the number of ratings due to the skewed distribution of the number of ratings across countries, with the US having significantly more ratings than other countries. We then used PCA to visualize the data in 2 dimensions. Before applying PCA to the data, we grouped countries into geographic regions based on United Nations geographical subregions. This grouping was done to simplify the clustering process and help the algorithm identify meaningful patterns more effectively. The PCA plot is shown below.
 
@@ -51,7 +51,7 @@ In order to characterize beer preferences in the clustered regions, for each of 
 
 We can see that countries from cluster 1, namely the United States and Canada, stand out due to their frequent rating of American IPA and Imperial IPA beers. Countries from cluster 3, which include Denmark, Norway, and Poland display a preference for traditional styles like Pale Lager, Imperial Stout and Bitter. In cluster 0, including countries like Slovakia and Latvia, IPA stands out as the most frequently reviewed beer style, followed by Pale Lager and Belgian Strong Ale. 
 
-### **Evolution of regional beer style preferences over time**
+#### **Evolution of regional beer style preferences over time**
 
 To gain a deeper understanding of beer preferences within the identified clusters, we analyzed the numerical ratings of the most frequently reviewed beers in each cluster and examined their evolution over time specifically within the countries belonging to the respective clusters. Results are shown in the plots below.
 
@@ -66,7 +66,7 @@ We then focused on the USA and Canada, which were grouped together in cluster 1.
 The above plot shows that the evolution of the average rating of both beer styles is extremely similar in the 2 countries. American IPA consistently receives high and stable ratings in both contries, uggesting a steady but not noticeably increasing interest. Interestingly, Pale Lager ratings in these two countries appear to increase over time. This suggests an evolution in taste over time, perhaps driven by global beer trends and expanding market availability (since Pale Lager is a European beer style). Overall, the similar evolution of ratings of both beer styles in the US and in Canada suggests that their clustering may actually reflect genuinely similar preferences.
 
 
-### **Including average ratings per beer style as features for clustering**
+#### **Including average ratings per beer style as features for clustering**
 
 Building on the previous analysis, we decided to repeat the clustering of countries, this time incorporating the average ratings for each beer style as additional features. This approach aimed to explore whether including ratings would yield different results. We also reasoned that using average ratings would provide a more accurate representation of beer preferences, as the number of ratings per beer style could be influenced by external factors, such as availability, rather than true preference. We performed the same procedure, grouping countries into geographic regions, performing PCA, and performing K-means with an optimal number of clusters. The results are shown in the plots below.
 
@@ -86,16 +86,16 @@ For most clusters, the average ratings of the most frequently reviewed beer styl
 
 We can observe that the non-US clusters show similar rating tendencies: for instance, for these clusters, IPA and American Pale Ale always oscillate around 3.5, Imperial stout around 4 and Pale lager around 2. This reinforces the idea that these clusters may not be significantly distinct.
 
-### **Conclusion beer style preferences**
+#### **Conclusion beer style preferences**
 Overall, our attempt to cluster countries based on beer ratings, using the number of reviews and the average rating for different beer styles as features, did not allow us to identify clearly distinct groups of countries. While the United States stood out as a unique cluster due to its distinct preferences, other non-U.S. clusters were less clearly separated and shared similar rating tendencies. A possible cause may be the skewness of the distribution of reviewer locations in the dataset: the vast majority of reviewers came either from the United States or from Europe. This may have have constrained the analysis and limited the number of meaningfully distinct clusters that could be identified.
 
 
-## Importance of specific beer attributes
+### Importance of specific beer attributes
 _Does the significance of specific beer attributes in determining one’s liking of a given beer vary by country?_
 
 After looking at how different beer styles are liked in different countries, we decided to explore how the different sensory characteristics of beers affect how much people enjoy them. We started by analyzing this across all countries together and then focused on different regions to see if there were any differences.
 
-### **Preliminary analysis**
+#### **Preliminary analysis**
 
 Before starting to implement our analysis, we verified compatibility of the rating systems for beer attributes across the two datasets. This enabled us to realize that taste and aroma were rated out of 5 in BeerAdvocate but out of 10 in RateBeer, as shown in the histograms below showing the distribution of attribute ratings in the 2 platforms. We overcame this issue by scaling. 
 
@@ -116,7 +116,7 @@ After examining the matrix, we observed that appearance appeared to be more dist
 
 Our plan moving forward was to divide the analysis into two parts: first, a global linear analysis to evaluate the overall importance of each attribute in determining final beer ratings, and second, a region-specific analysis to identify any variations across geographic regions.
 
-### **Linear regression analysis on all countries combined**
+#### **Linear regression analysis on all countries combined**
 Our linear regression model featured the following variables:
 - **Dependent variable**: Final Beer Rating  
 - **Independent variables**:  
@@ -185,7 +185,7 @@ In conclusion, the model provided solid insights into factors influencing beer r
 
 Motivated by the observed correlation between certain beer attributes in the preliminary analysis, we applied Lasso and Ridge regularization techniques to address potential multicollinearity among the predictor variables. These methods extend standard linear regression by adding penalties to the coefficients, which help mitigate both multicollinearity and overfitting. A comparison of the results showed that multicollinearity was not a significant concern, as the coefficients obtained from standard linear regression, Lasso, and Ridge were nearly identical. As shown in the table, the consistency across these methods highlights the reliability of the linear regression model and the stability of the attribute coefficients.
 
-### **Region-specific linear regression analysis**
+#### **Region-specific linear regression analysis**
 
 We then performef the same linear regression analysis but for each country in the dataset to investigate how beer attributes influence ratings in different countries. The boxplots below shown the distribution of the linear regression coefficients across all contries.
 
@@ -197,7 +197,7 @@ As shown in the above plot, taste consistently emerged as the most influential f
 
 We then grouped countries into geographical regions to analyze if the importance of the different beer attributes exhibit regional variations. Taste consistently held the highest coefficient across all regions, with aroma, palate, and appearance following it in the same order as identified when considering all countries together. Western Europe and North America showed tight clustering of coefficients, while Latin America and Eastern Asia displayed larger variance. This may reflect the fact that the dataset had much more data from  Western Europe and North America compared to other regions, rather than genuine preference differences. Style and brewery ratings consistently had the smallest coefficients across all regions, reflecting their secondary role in evaluations.
 
-### **Conclusion of specific beer attributes**
+#### **Conclusion of specific beer attributes**
 Our analysis revealed a consistent global ranking of beer attributes in terms of importance, with regional variations likely influenced by sample size and the distribution of reviewer locations in the dataset. While there were minor deviations between countries, the overall order of attribute importance in determining final beer ratings remained stable, with taste consistently emerging as the most dominant factor. This consistency suggests a global consensus on the relative significance of beer attributes.
 
 
@@ -229,7 +229,7 @@ In this way, some of the differences were statistically significant. However, st
 
 In the plot, few boxes contain zero (zero is not comprised between Q1 and Q3), which indicates that for most of the top 10 country pairs with the lowest p-values, ratings from one country are consistently higher or lower than those from the other country for most paired reviews in the sample. This implies that the majority of matched reviews for most of of these country pairs show a meaningful and unidirectional difference in ratings. In addition, the median for some country pairs is larger than 1 in absolute value. A difference of 1 out of 5 is large, which means that for these country pairs, the differences in ratings are not only statistically significant but also meaningful from a practical standpoint.
 
-### **Conclusion cultural bias**
+#### **Conclusion cultural bias**
 These results suggested that, after accounting for potential confounders, users from certain countries appear more generous in their ratings compared to users from other countries. There seemed to be clear trends in rating differences for certain country pairs, and the differences in ratings appeared significant from both a statistical and practical standpoint for these pairs. These findings align with the hypothesis that a "cultural bias" might influence beer reviewers, potentially impacting beer ratings.
 
 However, the matching process did not yield sufficient matches for all countries, which restricted our ability to make meaningful comparisons across a broader range of country pairs. In addition, a significant bias was only observed for some specific country pairs, meaning the results did not support the conclusion that this bias is a general or universal phenomenon. These observations highlighted the need for further investigation to clarify the role of cultural biases in beer ratings.
