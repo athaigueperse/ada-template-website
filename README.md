@@ -75,6 +75,7 @@ Our plan moving forward was to split the analysis into two parts: first, a globa
    - x4= Taste
    - x5= Brewery's Average Rating  
    - x6= Style's Average Rating
+
 Linear regression analysis of the total dataset showed us that the model provided nearly perfect fit to the data, since the R squared values for both the training and testing data was 0.97.These values indicatet that 97% of the variance in the final beer ratings could be explained by the the beer attributes as well as confounder variables such as brewery_avg_rating and style_avg_rating. The high F-statistic and its associated p-value close to zero further confirmed the model’s statistical significance. The MSE values for both training and testing datasets indicated that the linear model generalizes well, with low MSE showing accurate predictions. The regression coefficients highlighted the relative importance of different beer attributes:
 Taste(0.356) had the most importance followed by aroma(0.2115),palate(0.1164) and finally appearence(0.0769).
 Brewery reputation(0.0157) had subtle  but noticeable influences,while the effect of beer style was minimal.The residual plots showed symmetric distribution, indicating no systematic bias. The actual vs predicted plots demonstrated strong predictive accuracy. In conclusion, the model provided solid insights into factors influencing beer ratings, confirming taste as the dominant attribute.
