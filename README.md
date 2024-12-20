@@ -50,7 +50,6 @@ On the other hand, the right chart reveals that specific beer styles dominate in
 ### Importance of specific beer attributes
 _Does the significance of specific beer attributes in determining one’s liking of a given beer vary by country?_
 
-TO DO
 
 ## <a id="Location_related_biases_in_ratings"></a> Location-related biases in ratings
 After exploring how beer preferences differ across countries, we aimed to identify factors—beyond the intrinsic qualities of beer—that might influence user ratings. Our initial focus was on location-related biases, as these seemed the most likely to impact beer ratings.
