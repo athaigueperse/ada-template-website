@@ -35,7 +35,7 @@ We started by visualizing the number of ratings for different beer styles across
 
 ![3D_scatter_PCA](plots/beer_style_preferences_plot4.png)
 
-We then applied K-meabs to the resulting 2D representation of the data in order to see if certain countries clustered together in terms of number of ratings across beer styles. To do so, we had to determine the optimal number of clusters to specify to the clustering algorithm. To achieve this, we used silhouette width analysis and the elbow method. The outputs of these methods is shown below.
+We then applied K-means to the resulting 2D representation of the data in order to see if certain countries clustered together in terms of number of ratings across beer styles. To do so, we had to determine the optimal number of clusters to specify to the clustering algorithm. To achieve this, we used silhouette width analysis and the elbow method. The outputs of these methods is shown below.
 
 ![silhoutte_elbow](plots/beer_style_preferences_plot6.png)
 
