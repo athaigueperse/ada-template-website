@@ -51,7 +51,7 @@ The results of the analysis are shown as follows.
 
 ![preferences_top5_histogram_v1](plots/beer_style_preferences_plot8.png)
 
-As illustrated in these plots, the PCA-transformed scatter plot shows that countries like the United States and Canada (Cluster 1) stand out due to their strong preference for hop-forward styles such as American IPA and Imperial IPA. In contrast, European countries like Denmark, Norway, and Poland (Cluster 3) display a preference for traditional styles like Imperial Stout and Bitter. In Cluster 0, including countries like Slovakia and Latvia, has a more balanced preference with Pale Lager and Belgian Strong Ale dominating. The top 5 beer styles in each cluster further demonstrates these distinctions with showing clear dominance of specific styles within each region that reflects cultural and regional brewing traditions.
+As illustrated in these plots, the PCA-transformed scatter plot shows that countries like the United States and Canada (Cluster 1) stand out due to their strong preference for hop-forward styles such as American IPA and Imperial IPA. In contrast, European countries like Denmark, Norway, and Poland (Cluster 3) display a preference for traditional styles like Pale Lager, Imperial Stout and Bitter. In Cluster 0, including countries like Slovakia and Latvia, IPA stands out as the most prominent beer style although it has a more balanced preference with Pale Lager and Belgian Strong Ale. The top 5 beer styles in each cluster further demonstrates these distinctions with showing clear dominance of specific styles within each region that reflects cultural and regional brewing traditions.
 
 
 ### Regional Beer Preferences Over Time
@@ -65,22 +65,23 @@ For the sake of simplicity of the plot, since trends are obvious, we will not pl
 
 ![preferences_over_time1](plots/beer_style_preferences_plot12.png)
 
-comments are coming...
+The time evolution of beer style ratings across all clusters reveals that most trends remain relatively constant over time that indicates stable preferences for top beer styles within each region. However, a few significant changes stand out as follows. In Cluster 1, which includes the United States and Canada, there is a noticeable increase in ratings for American IPA starting around 2010, reflecting a growing popularity of this style over time. Similarly, in Cluster 0, Pale Lager shows slight fluctuations but remains relatively stable compared to IPA, which consistently dominates. Cluster 2 displays more variability, especially for Pale Lager, where ratings show notable turndowns and recoveries over the years. In Cluster 3, traditional styles such as Imperial Stout and Bitter maintain high but steady ratings, with no dramatic shifts. Meanwhile, Cluster 4 demonstrates a consistent preference for IPA and Pale Lager, though Pale Lager ratings exhibit some minor upward trends. Overall, while the general patterns of beer preferences remain stable, these key changes reveal evolving tastes for certain styles in specific regions.
 
 ### Adding Average Ratings into the Account
 
-comments are coming...
+In the second analysis, we added average beer style ratings of each country into the account. As underlined previously, we merged these average ratings and number of ratings columns and acquired the 3D dimensional data as we had in the previous analysis. Then we did over the same abovementioned procedure.
 
 
 ![clustering2](plots/beer_style_preferences_plot9.png)
 
 ![preferences_top5_histogram2](plots/beer_style_preferences_plot10.png)
 
-comments are coming...
+The updated analysis with 7 clusters, where we also have the average ratings' effect provides a more refined perspective on global beer preferences compared to the initial clustering analysis. The inclusion of weighted ratings reveals deeper regional distinctions, such as the United States forming its own cluster (Cluster 6) due to its dominance in highly rated styles like American IPA and Imperial IPA, while other clusters, like Cluster 3 (e.g., Denmark and Norway), highlight preferences for European styles such as Imperial Stout. The top 5 beer styles per cluster show that while IPA remains globally popular, the weighting by ratings enhances the significance of styles like Imperial Stout and Belgian Strong Ale in clusters such as 0 and 4. Furthermore, the PCA loadings reveal that widely rated styles like Low-Alcohol beers contribute heavily to the first principal component, whereas modern craft styles like IPA shape higher components, aligning with the distinct preferences in clusters like 6. Compared to the initial analysis, this approach recreates and refines cluster boundaries and emphasizes the interplay between popularity and appreciation, providing a diverse and more accurate illustration of global beer culture.
 
 ![preferences_over_time2](plots/beer_style_preferences_plot11.png)
 
-comments are coming...
+In general, most clusters maintain relatively stable preferences over time, but some significant changes and regional variations are apparent. In Cluster 0, IPA consistently dominates, while Imperial Stout and Pale Lager show minor fluctuations, reflecting their steady popularity. Cluster 1 highlights the rising popularity of American IPA, with other styles like Imperial Stout maintaining relatively high but stable ratings. Cluster 2, exhibits the most variability in its ratings, showing occasional turndowns and recoveries. Cluster 3 demonstrates consistent preferences for traditional European styles, with Bitter and Imperial Stout maintaining strong ratings. Cluster 4 reflects a mix of traditional and modern preferences, with a gradual rise in ratings for American IPA. Notably, Cluster 6 reveals a clear preference for hop-forward styles like American IPA and Imperial IPA, with their ratings remaining consistently high over time. Compared to the initial analysis, the finer clustering reveals diversed shifts in regional dynamics, such as greater differentiation among European countries and the dominance of specific styles like Imperial Stout in certain clusters. These observations emphasize the evolving yet consistent nature of beer style preferences across regions, driven by cultural influences and modern brewing trends.
+
 
 ### Importance of specific beer attributes
 _Does the significance of specific beer attributes in determining one’s liking of a given beer vary by country?_
