@@ -52,13 +52,13 @@ _Does the significance of specific beer attributes in determining one’s liking
 
 
 To begin this analysis, our initial step was to check the compatibility of the rating styles across the databases. During this process, we realized there were some differences in the rating systems of the databases as seen in the histogram plots below , which we resolved accordingly by scaling.
-![Beer Style Preferences Plot](importance_of_beer_attribitus_plot_1.1.png)
-![Beer Style Preferences Plot](importance_of_beer_attribitus_plot_1.2.png)
+![Histograms](plots/importance_of_beer_attribitus_plot_1.1.png)
+![Histograms](plots/importance_of_beer_attribitus_plot_1.2.png)
 We continued by surveying how much reviews we had from each country. This is shown here in the below bar plot
 (Countries with fewer reviwers than 50 were cut and USA is not included here as it has much more reviewers that it distrupts the homogenity of the plot)
-![Beer Style Preferences Plot](importance_of_beer_attribitus_plot_3.png)
+![Bar_plot](plots/importance_of_beer_attribitus_plot_3.png)
 We also examined the collinearity between beer attributes and visualization of these relationships can be seen in the below heatmap. Based on the insights gained from these evaluations, we developed a linear regression function equipped with utilities to detect and address collinearity issues if they arose.
-![Beer Style Preferences Plot](importance_of_beer_attribitus_plot_6.png)
+![heatmap](plots/importance_of_beer_attribitus_plot_6.png)
 Our plan moving forward was to split the analysis into two parts: first, a global linear analysis to assess the overall importance of each attribute, and second, a country-specific analysis to determine whether any deviations from the global trends could be observed.
 ### Total Linear Regression Analysis 
 - **Dependent variable**: Final Beer Rating  
@@ -71,11 +71,44 @@ Our plan moving forward was to split the analysis into two parts: first, a globa
    - x6= Style's Average Rating
 Linear regression analysis of the total dataset showed us that the model provided nearly perfect fit to the data, since the R squared values for both the training and testing data was 0.97.These values indicatet that 97% of the variance in the final beer ratings could be explained by the the beer attributes as well as confounder variables such as brewery_avg_rating and style_avg_rating. The high F-statistic and its associated p-value close to zero further confirmed the model’s statistical significance. The MSE values for both training and testing datasets indicated that the linear model generalizes well, with low MSE showing accurate predictions. The regression coefficients highlighted the relative importance of different beer attributes:
 Taste(0.356) had the most importance followed by aroma(0.2115),palate(0.1164) and finally appearence(0.0769).
-Brewery reputation(0.0157) had subtle  but noticeable influences,while the effect of beer style was minimal.The residual plots showed symmetric distribution, indicating no systematic bias. The actual vs predicted plots demonstrated strong predictive accuracy. In conclusion, the model provided solid insights into factors influencing beer ratings, confirming taste as the dominant attribute. 
-![Beer Style Preferences Plot](importance_of_beer_attribitus_plot_7.png)
-![Beer Style Preferences Plot](importance_of_beer_attribitus_plot_8.png)
-![Beer Style Preferences Plot](importance_of_beer_attribitus_plot_9.png)
-![Beer Style Preferences Plot](importance_of_beer_attribitus_plot_10.png)
+Brewery reputation(0.0157) had subtle  but noticeable influences,while the effect of beer style was minimal.The residual plots showed symmetric distribution, indicating no systematic bias. The actual vs predicted plots demonstrated strong predictive accuracy. In conclusion, the model provided solid insights into factors influencing beer ratings, confirming taste as the dominant attribute.
+OLS Regression Results                            
+==============================================================================
+Dep. Variable:                 rating   R-squared:                       0.970
+Model:                            OLS   Adj. R-squared:                  0.970
+Method:                 Least Squares   F-statistic:                 4.513e+07
+Date:                Fri, 20 Dec 2024   Prob (F-statistic):               0.00
+Time:                        04:09:48   Log-Likelihood:             5.6712e+06
+No. Observations:             8325434   AIC:                        -1.134e+07
+Df Residuals:                 8325427   BIC:                        -1.134e+07
+Df Model:                           6                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          3.5296   4.24e-05   8.32e+04      0.000       3.530       3.530
+x1             0.0769   5.78e-05   1330.489      0.000       0.077       0.077
+x2             0.2115   8.08e-05   2618.000      0.000       0.211       0.212
+x3             0.1165   6.81e-05   1710.368      0.000       0.116       0.117
+x4             0.3558   8.54e-05   4168.911      0.000       0.356       0.356
+x5             0.0157   7.29e-05    215.683      0.000       0.016       0.016
+x6             0.0004   7.02e-05      5.178      0.000       0.000       0.001
+==============================================================================
+Omnibus:                  1110130.223   Durbin-Watson:                   2.000
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):         14874152.036
+Skew:                          -0.033   Prob(JB):                         0.00
+Kurtosis:                       9.548   Cond. No.                         5.10
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+Training MSE: 0.014991810801546554 Training R2: 0.9701682103394674 Training Pearson Correlation: 0.984971172339306
+Testing MSE: 0.015048324437271856 Testing R2: 0.9700590232120285 Testing Pearson Correlation: 0.9849157450753232
+
+![Residual plot](plots/importance_of_beer_attribitus_plot_7.png)
+![Actual vs predicted](plots/importance_of_beer_attribitus_plot_8.png)
+![Residual plot](plots/importance_of_beer_attribitus_plot_9.png)
+![Actual vs predicted](plots/importance_of_beer_attribitus_plot_10.png)
 
 
 
