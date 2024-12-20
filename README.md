@@ -92,16 +92,19 @@ To begin this analysis, our initial step was to check the compatibility of the r
 ![Histograms](plots/importance_of_beer_attribitus_plot_1.1.png)
 ![Histograms](plots/importance_of_beer_attribitus_plot_1.2.png)
 
+By looking at the histograms we also realized that the ratings in the Rate Beer were more harsh compared to the Beer Advocate and they were generally lower.Also to note the rating syszem of Rate Beer seems to more strict only allowing 0.5 increments while the Beer Advocate ratings can be more precise
+
 We continued by surveying how much reviews we had from each country. This is shown here in the below bar plot
-(Countries with fewer reviwers than 50 were cut and USA is not included here as it has much more reviewers that it distrupts the homogenity of the plot)
+(Countries with fewer reviwers than 50 were cut and USA is not included here as it has much more reviewers that it distrupts the homogenity of the plot). This plot was very important to keep in mind, while analysing the results as data amount directly affects  country specific analyses
 
 ![Bar_plot](plots/importance_of_beer_attribitus_plot_3.png)
 
-We also examined the collinearity between beer attributes and visualization of these relationships can be seen in the below heatmap. Based on the insights gained from these evaluations, we developed a linear regression function equipped with utilities to detect and address collinearity issues if they arose.
+
+We also examined the collinearity between beer attributes and visualization of these relationships can be seen in the below heatmap.This heatmap matrix plot was created using the merged dataframe of both databases.After examining the matrix we assumed appereance might  be more unique when compared to other attributes since its correlation values were considerably moderate accross each dataset. High correlation numbers between the attributes (especially the aroma and taste attributes) were seen and this could have been a sign of multicolineratiy. Based on the insights gained from these evaluations, we developed a linear regression function equipped with utilities to detect and address collinearity issues if they arose.
 
 ![heatmap](plots/importance_of_beer_attribitus_plot_6.png)
 
-Our plan moving forward was to split the analysis into two parts: first, a global linear analysis to assess the overall importance of each attribute, and second, a country-specific analysis to determine whether any deviations from the global trends could be observed.
+Our plan moving forward was to split the analysis into two parts: First, a global linear analysis to assess the overall importance of each attribute and then, a country-specific analysis to determine whether any deviations from the global trends could be observed.
 ### Total Linear Regression Analysis 
 - **Dependent variable**: Final Beer Rating  
 - **Independent variables**:  
@@ -112,9 +115,9 @@ Our plan moving forward was to split the analysis into two parts: first, a globa
    - x5= Brewery's Average Rating  
    - x6= Style's Average Rating
 
-Linear regression analysis of the total dataset showed us that the model provided nearly perfect fit to the data, since the R squared values for both the training and testing data was 0.97.These values indicatet that 97% of the variance in the final beer ratings could be explained by the the beer attributes as well as confounder variables such as brewery_avg_rating and style_avg_rating. The high F-statistic and its associated p-value close to zero further confirmed the model’s statistical significance. The MSE values for both training and testing datasets indicated that the linear model generalizes well, with low MSE showing accurate predictions. The regression coefficients highlighted the relative importance of different beer attributes:
-Taste(0.356) had the most importance followed by aroma(0.2115),palate(0.1164) and finally appearence(0.0769).
-Brewery reputation(0.0157) had subtle  but noticeable influences,while the effect of beer style was minimal.The residual plots showed symmetric distribution, indicating no systematic bias. The actual vs predicted plots demonstrated strong predictive accuracy. In conclusion, the model provided solid insights into factors influencing beer ratings, confirming taste as the dominant attribute.
+Linear regression analysis of the total dataset showed us that the model provided nearly perfect fit to the data, since the R squared values for both the training and testing data were 0.97. These values indicated that 97% of the variance in the final beer ratings could be explained by the the beer attributes as well as confounder variables such as brewery_avg_rating and style_avg_rating. The high F-statistic and its associated p-value being close to zero further confirmed the model’s statistical significance. The MSE values for both training and testing datasets indicated that the linear model generalizes well, with low MSE showing accurate predictions. The regression coefficients highlighted the relative importance of different beer attributes:
+Taste (0.356) had the most importance followed by aroma (0.2115),palate (0.1164) and finally appearence (0.0769).
+Brewery reputation (0.0157) had subtle  but noticeable influences,while the effect of beer style (0.0004) was minimal.The residual plots showed symmetric distribution, indicating no systematic bias. The actual vs predicted plots for both the training and test datasets  demonstrated strong predictive accuracy with a strong alignment of the data along the y = x line. In conclusion, the model provided solid insights into factors influencing beer ratings, confirming taste as the dominant attribute.
 
 ### OLS Regression Results
 
@@ -129,7 +132,7 @@ Brewery reputation(0.0157) had subtle  but noticeable influences,while the effec
 | Df Model:                      | 6                |                     |                 |
 | Covariance Type:               | nonrobust        |                     |                 |
 
-|                 | coef     | std err    | t         | P>|t|    | [0.025    | 0.975]   |
+|                 | coef     | std err    | t         | P>|t|   | [0.025    | 0.975]   |
 |-----------------|----------|------------|-----------|---------|-----------|----------|
 | const           | 3.5296   | 4.24e-05   | 8.32e+04  | 0.000   | 3.530     | 3.530    |
 | x1              | 0.0769   | 5.78e-05   | 1330.489  | 0.000   | 0.077     | 0.077    |
@@ -164,7 +167,7 @@ Here in this barplot we can see how beer attributes scale against each other, th
 | Brewery Avg. Rating (x5)   | 0.015719          | 0.015668         | 0.015719         |
 | Beer Avg. Rating (x6)      | 0.000364          | 0.000320         | 0.000364         |
 
-Here we  applied Lasso and Ridge regularization techniques to the dataset to investigate potential multicollinearity among the predictor variables.These methods enhance the standard linear regression model by introducing penalties to the coefficients, helping to manage both multicollinearity and overfitting.Comparison of the  results of these analyses indicate that multicollinearity is not a significant issue in the dataset As we can see from the table, results across normal linear regression, lasso, and ridge were very close as all methods produced nearly identical coefficients(identical in case of ridge and normal linear regression).These analyse again showed us the reliability of the linear regression model and the stability of the coefficients given to the attributes
+Here we  applied Lasso and Ridge regularization techniques to the dataset to investigate potential multicollinearity among the predictor variables.These methods enhance the standard linear regression model by introducing penalties to the coefficients, helping to manage both multicollinearity and overfitting.Comparison of the  results of these analyses indicated that multicollinearity was not a significant issue in the dataset. As we can see from the table, results across normal linear regression, lasso, and ridge were very close as all methods produced nearly identical coefficient.These analyse again showed us the reliability of the linear regression model and the stability of the coefficients given to the attributes
 
 ### Country Specific Linear Regression Analysis 
 
@@ -172,12 +175,12 @@ Here we  applied Lasso and Ridge regularization techniques to the dataset to inv
 ![Box_plot](plots/importance_of_beer_attribitus_plot_12.png)
 
 Here we conducted linear regression analyses for each country, revealing how beer attributes and confounders influence ratings globally.
-Taste remained as the most influential factor across countries, with the boxplot illustrating its dominance through the highest median coefficient and widest interquartile range. This variation indicates country-specific differences in the importance placed on taste. Aroma consistently ranked second, with more tightly clustered coefficients, indicating general agreement on its significance. Palate and appearance contributed positively but less prominently, with regional variations suggesting some countries value visual or texture-related qualities more (in relative to other countries).
-Brewery reputation shows moderate influence, highlighting its subtle role in shaping perceptions but remaining secondary to core beer qualities. Style rating has the least impact, suggesting users prioritize sensory attributes like taste and aroma over beer style classification.
+Taste remained as the most influential factor across countries, with the boxplot illustrating its dominance through the highest median coefficient and widest interquartile range. This variation indicated country-specific differences in the importance placed on taste. Aroma consistently ranked second, with more tightly clustered coefficients, indicating general agreement on its significance. Palate and appearance contributed positively but less prominently, with regional variations suggesting some countries value visual or texture-related qualities more (in relative to other countries).
+Brewery reputation showed moderate influence, highlighting its subtle role in shaping perceptions but remaining secondary to core beer qualities. Style rating had the least impact, suggesting users prioritize sensory attributes like taste and aroma over beer style classifications.
 
 ![Box_plot](plots/importance_of_beer_attribitus_plot_13.png) 
 
-Here, we grouped countries into geographical regions to analyze if beer attribute preferences exhibit regional patterns and how the importance of specific attributes varies across regions. Taste consistently holds the highest coefficient globally, with aroma, palate, and appearance showing slight inter-regional deviations. Western Europe, Eastern Europe, and North America showed tight clustering of coefficients, while Latin America and Eastern Asia display larger variance. his indicated that statistical noise, not genuine preference differences, may drive the higher variance in these regions..It is also important to mention that North America, despite having only two countries (USA and Canada), showed highly consistent results, likely due to the largeness of USA as reviewer database. Style and brewery ratings had smaller coefficients, reflecting their secondary role in evaluations.
+Here, we grouped countries into geographical regions to analyze if beer attribute preferences exhibit regional patterns and how the importance of specific attributes varies across regions. Taste consistently held the highest coefficient globally, with aroma, palate, and appearance showing slight inter-regional deviations. Western Europe, Eastern Europe, and North America showed tight clustering of coefficients, while Latin America and Eastern Asia displayed larger variance.This indicated that statistical noise, not genuine preference differences, may drive the higher variance in these regions.It is also important to mention that North America, despite having only two countries (USA and Canada), showed highly consistent results, likely due to the largeness of USA as reviewer database. Style and brewery ratings had smaller coefficients, reflecting their secondary role in evaluations.
 
 Overall, this analysis showed consistent global importance of beer attributes, with regional nuances influenced by sample size, reviewer distribution, and cultural factors. Social effects, like brewery reputation, played a minor role compared to sensory attributes. Despite small deviations between countries, the order of attribute importance remained stable, with Taste as the dominant factor. This demonstrated a global agreement on the importance scale, with variations limited to minor coefficient differences across regions.
 
