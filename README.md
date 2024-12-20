@@ -24,29 +24,31 @@ Starting from P2, we made inital analyses and showed the results below which als
 
 ![Wordcloud plot](plots/beer_style_preferences_plot3.png)
 
-![bar plots](plots/beer_style_preferences_plot1_2.png)
-
-![bar plots](plots/beer_style_preferences_plot1_2.png)
-
-![bar plots](plots/beer_style_preferences_plot4.png)
-
-![bar plots](plots/beer_style_preferences_plot5.png)
-
-![bar plots](plots/beer_style_preferences_plot6.png)
-
-![bar plots](plots/beer_style_preferences_plot7.png)
-
-![bar plots](plots/beer_style_preferences_plot8.png)
-
-![bar plots](plots/beer_style_preferences_plot9.png)
-
-![bar plots](plots/beer_style_preferences_plot10.png)
-
-![bar plots](plots/beer_style_preferences_plot11.png)
+![plots1](plots/beer_style_preferences_plot1_2.png)
 
 The word cloud maps and histograms show that the distribution of ratings of popular beer brands and styles across the world based on BeerAdvocate and RateBeer data. In the left chart, the most-rated beer brand, "St. Bernardus Abt 12," received over 8,000 ratings, followed closely by "Guinness Draught" and other popular brands that have between 5,000 and 8,000 ratings. This partially indicates that there is almost an uniform distribution among the well-known brands. 
 
 On the other hand, the right chart reveals that specific beer styles dominate in popularity. "American IPA" leads with over 550,000 ratings, followed by "India Pale Ale (IPA)" at around 500,000 ratings. Other styles like "Imperial Stout" and "Pale Ale" also feature prominently, with over 200,000 ratings each.
+
+![plots2](plots/beer_style_preferences_plot3.png)
+
+![plots3](plots/beer_style_preferences_plot4.png)
+
+![plots5](plots/beer_style_preferences_plot5.png)
+
+![plots6](plots/beer_style_preferences_plot6.png)
+
+![plots7](plots/beer_style_preferences_plot7.png)
+
+![plots8](plots/beer_style_preferences_plot8.png)
+
+![plots9](plots/beer_style_preferences_plot9.png)
+
+![plots10](plots/beer_style_preferences_plot10.png)
+
+![plots11](plots/beer_style_preferences_plot11.png)
+
+
 
 ### Importance of specific beer attributes
 _Does the significance of specific beer attributes in determining one’s liking of a given beer vary by country?_
