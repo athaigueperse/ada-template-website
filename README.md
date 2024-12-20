@@ -14,7 +14,7 @@ We decided to start our analysis by investigating how the origin of reviewers in
 ### Beer style preferences
 _How do beer style preferences differ between countries, and are these regional preferences stable over time?_
 
-TO DO
+![Wordcloud plot](plots/beer_style_preferences_plot3.png)
 
 ### Importance of specific beer attributes
 _Does the significance of specific beer attributes in determining one’s liking of a given beer vary by country?_
